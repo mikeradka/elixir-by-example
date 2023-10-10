@@ -1,2 +1,2 @@
 # elixir-by-example
-Learning the Elixir programming language
+Learning the [Elixir](https://elixir-lang.org/) programming language
