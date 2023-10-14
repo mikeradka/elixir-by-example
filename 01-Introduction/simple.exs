@@ -22,7 +22,13 @@ IO.puts(1 != 2) # != comparison operator
 IO.puts(1 < 2) # < comparison operator
 IO.puts(1 == 1.0) # less strict structural comparison
 IO.puts(1 === 1.0) # more strict structural comparison
+
 x = 1 # assign a variable
 IO.puts(x)  # print the variable
 IO.puts(1 = x) # match operator true
 # IO.puts(2 = x) # match operator false
+
+{a, b, c} = {:hello, "world", 42}
+IO.puts(a) # pattern match on tuples
+IO.puts(b)
+IO.puts(c)
