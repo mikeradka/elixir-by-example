@@ -22,3 +22,5 @@ IO.puts(1 != 2) # != comparison operator
 IO.puts(1 < 2) # < comparison operator
 IO.puts(1 == 1.0) # less strict structural comparison
 IO.puts(1 === 1.0) # more strict structural comparison
+x = 1 # assign a variable
+IO.puts(x)  # print the variable
