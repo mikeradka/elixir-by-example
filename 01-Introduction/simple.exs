@@ -32,3 +32,9 @@ IO.puts(1 = x) # match operator true
 IO.puts(a) # pattern match on tuples
 IO.puts(b)
 IO.puts(c)
+
+{:ok, result} = {:ok, 13} # pattern match on specific values
+IO.puts(result)
+
+[a, b, c] = [1, 2, 3] # pattern match on a list
+IO.puts(a)
