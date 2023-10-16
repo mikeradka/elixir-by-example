@@ -15,8 +15,7 @@ defmodule MyModule do
   end
 end
 
-# > iex imports_and_aliase
-# s.ex
+# > iex imports_and_aliases.ex
 # Erlang/OTP 26 [erts-14.0.2] [source] [64-bit] [smp:16:16] [ds:16:16:10] [async-threads:1] [jit:ns] [dtrace]
 #
 # Interactive Elixir (1.15.7) - press Ctrl+C to exit (type h() ENTER for help)
