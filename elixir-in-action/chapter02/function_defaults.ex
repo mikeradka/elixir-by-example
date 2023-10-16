@@ -13,7 +13,7 @@
 # 8
 
 defmodule Calc do
-  def sum(a, b \\ 0) do
+  def sum(a, b \\ 0) do    # a default value is defined for arg b
     a + b
   end
 end
