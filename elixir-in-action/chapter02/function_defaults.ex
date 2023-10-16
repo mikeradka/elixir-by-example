@@ -28,3 +28,8 @@ end
 # 4
 # iex(6)> MyModule.fun(1,1,1)
 # 5
+#
+# Default values generate multiple functions of
+# the same name with different arities. The
+# previous code generates three functions:
+# MyModule.fun/2, MyModule.fun/3, & MyModule.fun/4.
