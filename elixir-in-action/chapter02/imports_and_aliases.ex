@@ -8,10 +8,10 @@
 # module name:
 
 defmodule MyModule do
-  import IO
+  import IO   # imports the IO module
 
   def my_function() do
-    puts "Calling imported function"
+    puts "Calling imported function"  # you can use puts instead of IO. puts
   end
 end
 
