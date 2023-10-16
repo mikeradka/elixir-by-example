@@ -8,5 +8,7 @@
 defmodule Rectangle do
   def area(a), do: area(a, a)
 
-  def area(a, b), do: a * b # same name, but different function
+  def area(a, b) do
+    a * b # same name, but different function
+  end
 end
