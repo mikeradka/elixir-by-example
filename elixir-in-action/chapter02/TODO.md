@@ -5,4 +5,6 @@
 - [x] 2.3.3 Function arity (`arity_demo.ex`, `arity_calc.ex`)
 - [x] 2.3.4 Function visibility (`private_function.ex`)
 - [x] 2.3.5 Imports and aliases (`imports_and_aliases.ex`)
-- [ ] 2.3.6 Module attributes (`circle.ex`)
+- [ ] 2.3.6 Module attributes (`circle.ex`, `circle2.ex`)
+- [ ] 2.3.6 Type specifications
+- [ ] 2.3.7 Comments
