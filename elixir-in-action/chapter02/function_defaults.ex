@@ -17,3 +17,14 @@ defmodule Calc do
     a + b
   end
 end
+
+defmodule MyModule do
+  def fun(a, b \\ 1, c, d \\ 2) do  # set defaults for multiple args
+    a + b + c + d
+  end
+end
+
+# iex(5)> MyModule.fun(1,1,1,1)
+# 4
+# iex(6)> MyModule.fun(1,1,1)
+# 5
