@@ -9,5 +9,13 @@ IO.puts("number_hex = 0xFF" <> String.pad_leading(": ", 4) <> to_string(number_h
 float = 3.14  # Float
 IO.puts("float = 3.14" <> String.pad_leading(": ", 9) <> to_string(float))
 
-float_exp = 1.0e-2
+float_exp = 1.0e-2  # Float, exponential notation
 IO.puts("float_exp = 1.0e-2 : " <> to_string(float_exp))
+
+# standard arithmetic operators are supported:
+# 1 + 2 * 3
+IO.puts("1 + 2 * 3" <> String.pad_leading(": ", 12) <> to_string(1 + 2 * 3))
+
+# The division operator always returns a float value
+IO.puts("4 / 2" <> String.pad_leading(": ", 16) <> to_string(4 / 2))
+IO.puts("3 / 2" <> String.pad_leading(": ", 16) <> to_string(3 / 2))
