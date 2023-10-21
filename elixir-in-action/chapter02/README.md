@@ -7,7 +7,7 @@
 - [x] 2.3.5 Imports and aliases (`imports_and_aliases.ex`)
 - [x] 2.3.6 Module attributes (`circle.ex`, `circle2.ex`)
 - [x] 2.3.6 Type specifications (`circle3.ex`)
-- [ ] 2.3.7 Comments
+- [x] 2.3.7 Comments
 - [ ] 2.4.1 Numbers
 - [ ] 2.4.2 Atoms
 - [ ] 2.4.3 Tuples
