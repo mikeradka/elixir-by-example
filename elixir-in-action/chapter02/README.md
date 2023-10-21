@@ -8,6 +8,6 @@
 - [x] 2.3.6 Module attributes (`circle.ex`, `circle2.ex`)
 - [x] 2.3.6 Type specifications (`circle3.ex`)
 - [x] 2.3.7 Comments
-- [x] 2.4.1 Numbers
+- [x] 2.4.1 Numbers (`numbers.ex`)
 - [ ] 2.4.2 Atoms
 - [ ] 2.4.3 Tuples
