@@ -27,3 +27,15 @@
 variable = :some_atom
 string = "variable = :some_atom"
 IO.puts(string <> " : " <> to_string(variable))
+
+# ALIASES
+# You can omit the beginning colon and start with an
+# uppercase character:
+# iex(1)> AnAtom
+# AnAtom
+# iex(2)> is_atom(AnAtom)
+# true
+variable = AnAtom
+string = "variable = AnAtom"
+pad = String.pad_leading(": ", 7)
+IO.puts(string <> pad <> to_string(variable))
