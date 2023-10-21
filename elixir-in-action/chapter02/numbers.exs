@@ -19,3 +19,16 @@ IO.puts("1 + 2 * 3" <> String.pad_leading(": ", 12) <> to_string(1 + 2 * 3))
 # The division operator always returns a float value
 IO.puts("4 / 2" <> String.pad_leading(": ", 16) <> to_string(4 / 2))
 IO.puts("3 / 2" <> String.pad_leading(": ", 16) <> to_string(3 / 2))
+
+# To perform integer division, use the div/2 Kernel function
+expr = div(5, 2)
+result = to_string(expr)
+expr_str = "div(5, 2)"
+pad = String.pad_leading(": ", 12)
+IO.puts(expr_str <> pad <> result)
+
+# To calculate the remainder, use the rem/2 Kernel function
+expr = rem(5, 2)
+result = to_string(expr)
+expr_str = "rem(5, 2)"
+IO.puts(expr_str <> pad <> result)
