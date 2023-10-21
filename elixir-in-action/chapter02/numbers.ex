@@ -39,3 +39,9 @@ million = 1_000_000
 result = to_string(million)
 var = "million = 1_000_000"
 IO.puts(var <> " : " <> result)
+
+# An integer takes up as much space as needed to accomodate
+# the number, whereas a float occupies either 32 or 64 bits,
+# depending on the build architecture of the virtual machine.
+# Floats are internally represented in IEEE 754-1985
+# (binary precision) format.
