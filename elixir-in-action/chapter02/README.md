@@ -13,3 +13,4 @@
 - [x] 2.4.3 Tuples (`tuples.ex`)
 - [ ] 2.4.4 Lists
 - [ ] 2.4.5 Immutability
+- [ ] 2.4.6 Maps
