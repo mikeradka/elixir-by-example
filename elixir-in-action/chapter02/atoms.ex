@@ -26,7 +26,8 @@
 # the code is still readable.
 variable = :some_atom
 string = "variable = :some_atom"
-IO.puts(string <> " : " <> to_string(variable))
+pad = String.pad_leading(": ", 7)
+IO.puts(string <> pad <> to_string(variable))
 
 # ALIASES
 # You can omit the beginning colon and start with an
@@ -37,7 +38,7 @@ IO.puts(string <> " : " <> to_string(variable))
 # true
 variable = AnAtom
 string = "variable = AnAtom"
-pad = String.pad_leading(": ", 7)
+pad = String.pad_leading(": ", 11)
 IO.puts(string <> pad <> to_string(variable))
 
 # Remember that aliases can also be used to give alternate
@@ -70,7 +71,7 @@ IO.puts(string <> pad <> to_string(variable))
 # true
 true_atom = :true == true
 true_atom_str = ":true == true"
-pad = String.pad_leading(": ", 11)
+pad = String.pad_leading(": ", 15)
 IO.puts(true_atom_str <> pad <> to_string(true_atom))
 
 # A boolean is just an atom that has a value of true or false
@@ -91,17 +92,86 @@ IO.puts(true_atom_str <> pad <> to_string(true_atom))
 # AND Boolean operator example
 andd = true and false
 andd_str = "true and false"
-pad = String.pad_leading(": ", 10)
+pad = String.pad_leading(": ", 14)
 IO.puts(andd_str <> pad <> to_string(andd))
 
 # OR Boolean operator example
 orr = false or true
 orr_str = "false or true"
-pad = String.pad_leading(": ", 11)
+pad = String.pad_leading(": ", 15)
 IO.puts(orr_str <> pad <> to_string(orr))
 
 # NOT Boolean operator example
 nott = not false
 nott_str = "not false"
-pad = String.pad_leading(": ", 15)
-IO.puts(nott_str <> pad <> to_string(nott_str))
+pad = String.pad_leading(": ", 19)
+IO.puts(nott_str <> pad <> to_string(nott))
+
+# NIL AND TRUTHY VALUES
+# Another special atom is :nil, which works somewhat
+# similarly to null from other languages. You can
+# reference nil without a colon:
+#
+# iex(1)> nil == :nil
+# true
+nill  = nil == :nil
+nill_str = "nil == :nil"
+pad = String.pad_leading(": ", 17)
+IO.puts(nill_str <> pad <> to_string(nill))
+
+# The atom nil plays a role in Elixir's additional support
+# for truthness. The atoms nil and false are treated as
+# falsy values, whereas everything else is treated as a
+# truthy value.
+#
+# This property can be used with Elixir's short-circuit
+# operators ||, &&, and !. The operator || returns the
+# first expression that isn't falsy:
+#
+# iex(1)> nil || false
+# false
+# iex(2)> nil || false || 5
+# 5
+# iex(3)> nil || false || 5 || true
+# 5
+# iex(4)> nil || false || true
+# true
+
+# || short-circuit operator example
+isnot_falsy = nil || false || 5 || true
+isnot_falsy_str = "nil || false || 5 || true"
+IO.puts(isnot_falsy_str <> " : " <> to_string(isnot_falsy))
+
+# Because nil and false are falsy expressions, the number
+# 5 is returned. Subsequent expressions won't be evaluated
+# at all. If all expressions evaluate to a falsy value, the
+# result of the last expression is returned:
+#
+# iex(5)> nil || false || :true == false || nil
+# nil
+#
+# The operator && returns the second expression, but only if
+# the first expression is truthy. Otherwise, it returns the
+# first expression without evaluating the second one:
+#
+# iex(1)> true && 5
+# 5
+# iex(2)> false && 5
+# false
+# iex(3)> nil && 5
+# nil
+# iex(4)> :true == false && 5
+# false
+
+# Short-circuiting can be used for elegant operation chaining.
+# For example, if you need to fetch a value from a cache, a
+# local disk, or a remote database, you could do this:
+#
+# read_cached || read_from_disk || read_from_database
+#
+# Similarly, you can use the && operator to ensure that
+# certain conditions are met:
+#
+# database_value = connection_established? && read_data
+#
+# Short-circuit operators make it possible to write concise code.
