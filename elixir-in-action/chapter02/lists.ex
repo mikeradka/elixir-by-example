@@ -4,8 +4,9 @@ defmodule Print do
   import IO
 
   @doc "Prints the expression input and output with some padding"
-  def print_expression(input, delim, output) do
-    puts(input <> delim <> to_string(output))
+  def print_expression(input, output, padding) do
+    pad = String.pad_leading(" : ", padding)
+    puts(input <> pad <> to_string(output))
   end
 end
 
@@ -19,8 +20,7 @@ end
 prime_numbers = [2, 3, 5, 7]
 expr_str = "prime_numbers = [2, 3, 5, 7]"
 prime_numbers_insp = inspect(prime_numbers)
-pad = String.pad_leading(" : ", 0)
-Print.print_expression(expr_str, pad, prime_numbers_insp)
+Print.print_expression(expr_str, prime_numbers_insp, 0)
 
 # Lists may look like arrays, but they work like singly linked
 # lists. To do something with the list, you have to traverse it.
@@ -31,8 +31,7 @@ Print.print_expression(expr_str, pad, prime_numbers_insp)
 # 4
 expr_str = "length(prime_numbers)"
 expr = length(prime_numbers)
-pad = String.pad_leading(" : ", 10)
-Print.print_expression(expr_str, pad, expr)
+Print.print_expression(expr_str, expr, 10)
 
 # List utility functions
 # There are many operations you can do with lists. For a
@@ -47,8 +46,7 @@ Print.print_expression(expr_str, pad, expr)
 # 7
 expr_str = "Enum.at(prime_numbers, 3)"
 expr = Enum.at(prime_numbers, 3)
-pad = String.pad_leading(" : ", 6)
-Print.print_expression(expr_str, pad, expr)
+Print.print_expression(expr_str, expr, 6)
 
 # Enum.at is another O(n) operation: it iterates from the
 # beginning of the list to the desired element. Lists are
@@ -65,13 +63,11 @@ Print.print_expression(expr_str, pad, expr)
 # false
 expr = 5 in prime_numbers
 expr_str = "5 in prime_numbers"
-pad = String.pad_leading(" : ", 13)
-Print.print_expression(expr_str, pad, expr)
+Print.print_expression(expr_str, expr, 13)
 
 expr = 4 in prime_numbers
 expr_str = "4 in prime_numbers"
-pad = String.pad_leading(" : ", 13)
-Print.print_expression(expr_str, pad, expr)
+Print.print_expression(expr_str, expr, 13)
 
 # To manipulate lists, you can use functions from the List
 # module. For example, List.replace_at/3 modifies the
