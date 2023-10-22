@@ -10,4 +10,6 @@
 - [x] 2.3.7 Comments
 - [x] 2.4.1 Numbers (`numbers.ex`)
 - [x] 2.4.2 Atoms (`atoms.ex`)
-- [ ] 2.4.3 Tuples
+- [x] 2.4.3 Tuples (`tuples.ex`)
+- [ ] 2.4.4 Lists
+- [ ] 2.4.5 Immutability
