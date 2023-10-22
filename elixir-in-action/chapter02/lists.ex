@@ -1,3 +1,14 @@
+defmodule Print do
+  @moduledoc "Implements basic printing functions"
+
+  import IO
+
+  @doc "Prints the expression input and output with some padding"
+  def print_expression(input, delim, output) do
+    puts(input <> delim <> to_string(output))
+  end
+end
+
 # LISTS
 # Lists in Erlang are used to manage dynamic, variable
 # sized collections of data. The syntax deceptively
@@ -9,7 +20,7 @@ prime_numbers = [2, 3, 5, 7]
 expr_str = "prime_numbers = [2, 3, 5, 7]"
 prime_numbers_insp = inspect(prime_numbers)
 pad = String.pad_leading(" : ", 0)
-IO.puts(expr_str <> pad <> to_string(prime_numbers_insp))
+Print.print_expression(expr_str, pad, prime_numbers_insp)
 
 # Lists may look like arrays, but they work like singly linked
 # lists. To do something with the list, you have to traverse it.
@@ -21,7 +32,7 @@ IO.puts(expr_str <> pad <> to_string(prime_numbers_insp))
 expr_str = "length(prime_numbers)"
 expr = length(prime_numbers)
 pad = String.pad_leading(" : ", 10)
-IO.puts(expr_str <> pad <> to_string(expr))
+Print.print_expression(expr_str, pad, expr)
 
 # List utility functions
 # There are many operations you can do with lists. For a
@@ -37,7 +48,7 @@ IO.puts(expr_str <> pad <> to_string(expr))
 expr_str = "Enum.at(prime_numbers, 3)"
 expr = Enum.at(prime_numbers, 3)
 pad = String.pad_leading(" : ", 6)
-IO.puts(expr_str <> pad <> to_string(expr))
+Print.print_expression(expr_str, pad, expr)
 
 # Enum.at is another O(n) operation: it iterates from the
 # beginning of the list to the desired element. Lists are
@@ -52,7 +63,16 @@ IO.puts(expr_str <> pad <> to_string(expr))
 # true
 # iex(5)> 4 in prime_numbers
 # false
-#
+expr = 5 in prime_numbers
+expr_str = "5 in prime_numbers"
+pad = String.pad_leading(" : ", 13)
+Print.print_expression(expr_str, pad, expr)
+
+expr = 4 in prime_numbers
+expr_str = "4 in prime_numbers"
+pad = String.pad_leading(" : ", 13)
+Print.print_expression(expr_str, pad, expr)
+
 # To manipulate lists, you can use functions from the List
 # module. For example, List.replace_at/3 modifies the
 # element at a certain position:
