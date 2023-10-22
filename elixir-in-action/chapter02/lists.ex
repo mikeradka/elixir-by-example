@@ -28,3 +28,23 @@ IO.puts(expr_str <> pad <> to_string(expr))
 # detailed reference, see the docs for the List module:
 # https://hexdocs.pm/elixir/List.html and the Enum module:
 # https://hexdocs.pm/elixir/Enum.html
+#
+# To get an element of a list, you can use the Enum.at/2
+# function:
+#
+# iex(3)> Enum.at(prime_numbers, 3)
+# 7
+#
+# Enum.at is another O(n) operation: it iterates from the
+# beginning of the list to the desired element. Lists are
+# never a good fit when direct access is called for. For
+# direct access, tuples, maps, or a higher-level data
+# structure is appropriate.
+#
+# You can check whether a list contains a particular element
+# with the help of the in operator:
+#
+# iex(4)> 5 in prime_numbers
+# true
+# iex(5)> 4 in prime_numbers
+# false
