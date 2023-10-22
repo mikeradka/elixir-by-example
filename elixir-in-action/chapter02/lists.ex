@@ -48,3 +48,7 @@ IO.puts(expr_str <> pad <> to_string(expr))
 # true
 # iex(5)> 4 in prime_numbers
 # false
+#
+# To manipulate lists, you can use functions from the List
+# module. For example, List.replace_at/3 modifies the
+# element at a certain position:
