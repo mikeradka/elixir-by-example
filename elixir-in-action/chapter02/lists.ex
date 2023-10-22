@@ -34,7 +34,11 @@ IO.puts(expr_str <> pad <> to_string(expr))
 #
 # iex(3)> Enum.at(prime_numbers, 3)
 # 7
-#
+expr_str = "Enum.at(prime_numbers, 3)"
+expr = Enum.at(prime_numbers, 3)
+pad = String.pad_leading(" : ", 6)
+IO.puts(expr_str <> pad <> to_string(expr))
+
 # Enum.at is another O(n) operation: it iterates from the
 # beginning of the list to the desired element. Lists are
 # never a good fit when direct access is called for. For
