@@ -187,3 +187,25 @@ canonical_list = [1 | [2 | [ 3 | [4 | []]]]]
 expr_str = "canonical_list = [1 | [2 | [ 3 | [4 | []]]]]"
 expr = inspect(canonical_list)
 Print.print_expression(expr_str, expr, 12)
+
+# Nobody writes constructs like this in practice, but it is important
+# to understand that lists are recursive structures of head/tail pairs.
+#
+# To get the head of the list, you can use the hd function
+# To get the tail of the list, you can use the tl function
+# iex(1)> hd([1, 2, 3, 4])
+# 1
+# iex(2)> tl([1, 2, 3, 4])
+# [2, 3, 4]
+
+head = hd(a_list)
+expr_str = "hd(a_list)"
+Print.print_expression(expr_str, head, 46)
+
+tail = tl(a_list)
+expr = inspect(tail)
+expr_str = "tl(a_list)"
+Print.print_expression(expr_str, expr, 46)
+
+# Both the hd and tl operations are 0(1), because they amount to
+# reading one or the other value from the (head, tail) pair.
