@@ -106,3 +106,7 @@ Print.print_expression(expr_str, expr, 0)
 #
 # The value of -1 indicates that the element should be appended to
 # the end of the list.
+inserted = List.insert_at(prime_numbers, 3, 13)
+inserted_str = "List.insert_at(prime_numbers, 3, 13)"
+expr = inspect(prime_numbers)
+Print.print_expression(inserted_str, expr, 20)
