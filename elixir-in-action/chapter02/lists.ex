@@ -137,4 +137,53 @@ Print.print_expression(expr_str, expr, 37)
 #
 # RECURSIVE LIST DEFINITION
 #
+# Think of lists as recursive structures. A list can be represented
+# by a pair (head, tail), where head is the first element of the list
+# and tail 'points' to the (head, tail) pair of the remaining
+# elements. In Elixir, there's a special syntax to support recursive
+# list definition:
 #
+# a_list = [head | tail]
+#
+# head can be any type of data, whereas tail is itself a list. If tail
+# is an empty list, it indicates the end of the entire list.
+#
+# iex(1)> [1 | []]
+# [1]
+# iex(2)> [1 | [2 | []]]
+# [1, 2]
+# iex(3)> [1 | [2]]
+# [1, 2]
+# iex(4)> [1 | [2, 3, 4]]
+# [1, 2, 3, 4]
+a_list = [1 | []]
+expr_str = "a_list = [1 | []]"
+expr = inspect(a_list)
+Print.print_expression(expr_str, expr, 39)
+
+a_list = [1 | [2 | []]]
+expr_str = "a_list = [1 | [2 | []]]"
+expr = inspect(a_list)
+Print.print_expression(expr_str, expr, 33)
+
+a_list = [1 | [2]]
+expr_str = "a_list = [1 | [2]]"
+expr = inspect(a_list)
+Print.print_expression(expr_str, expr, 38)
+
+a_list = [1 | [2, 3, 4]]
+expr_str = "a_list = [1 | [2, 3, 4]]"
+expr = inspect(a_list)
+Print.print_expression(expr_str, expr, 32)
+#
+# This illustrates that a list is a pair with two values: a head and a
+# tail, the tail being itself a list.
+# The following is a snipped of a canonical recursive definition
+# of a list:
+# iex(12)> [1 | [2 | [ 3 | [4 | []]]]]
+# [1, 2, 3, 4]
+
+canonical_list = [1 | [2 | [ 3 | [4 | []]]]]
+expr_str = "canonical_list = [1 | [2 | [ 3 | [4 | []]]]]"
+expr = inspect(canonical_list)
+Print.print_expression(expr_str, expr, 12)
