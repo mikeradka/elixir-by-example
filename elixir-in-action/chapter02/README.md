@@ -11,6 +11,6 @@
 - [x] 2.4.1 Numbers (`numbers.ex`)
 - [x] 2.4.2 Atoms (`atoms.ex`)
 - [x] 2.4.3 Tuples (`tuples.ex`)
-- [ ] 2.4.4 Lists (`lists.ex`)
+- [x] 2.4.4 Lists (`lists.ex`)
 - [ ] 2.4.5 Immutability
 - [ ] 2.4.6 Maps
