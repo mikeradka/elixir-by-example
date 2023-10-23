@@ -108,5 +108,29 @@ Print.print_expression(expr_str, expr, 0)
 # the end of the list.
 inserted = List.insert_at(prime_numbers, 3, 13)
 inserted_str = "List.insert_at(prime_numbers, 3, 13)"
-expr = inspect(prime_numbers)
+expr = inspect(inserted)
 Print.print_expression(inserted_str, expr, 20)
+
+appended = List.insert_at(prime_numbers, -1, 13)
+appended_str = "List.insert_at(prime_numbers, -1, 13)"
+expr = inspect(appended)
+Print.print_expression(appended_str, expr, 19)
+
+# List most list operations, modifying an arbitrary element has a
+# complexity of 0(n). In particuilar, appending to the end is expensive
+# because it always takes n steps, n being the length of the list. In
+# addition, the dedicated operator ++ is available. It concatenates
+# two lists:
+#
+# iex(12)> [1, 2, 3] ++ [4, 5]
+# [1, 2, 3, 4, 5]
+concatenated = [1, 2, 3] ++ [4, 5]
+expr = inspect(concatenated)
+expr_str = "[1, 2, 3] ++ [4, 5]"
+Print.print_expression(expr_str, expr, 37)
+
+# Because the complexity is 0(n), n being the length of the left list
+# (the one being appended to). In general, you should avoid adding
+# elements to the end of a list. Lists are most efficient when new
+# elements are pushed to the top, or popped from it. To understand
+# why, let's look at the recursive nature of lists.
