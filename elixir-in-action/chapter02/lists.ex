@@ -91,3 +91,18 @@ prime_numbers = List.replace_at(prime_numbers, 0, 11)
 expr = inspect(prime_numbers)
 expr_str = "prime_numbers = List.replace_at(prime_numbers, 0, 11)"
 Print.print_expression(expr_str, expr, 0)
+
+# You can insert a new element at the specified position with the
+# List.insert_at function:
+#
+# iex(9)> List.insert_at(prime_numbers, 3, 13)
+# [11, 3, 5, 13, 7]
+#
+# To append to the end, you can use a negative value for the insert
+# position:
+#
+# iex(10)> List.insert_at(prime_numbers, -1, 13)
+# [11, 3, 5, 7, 13]
+#
+# The value of -1 indicates that the element should be appended to
+# the end of the list.
