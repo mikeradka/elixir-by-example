@@ -209,3 +209,24 @@ Print.print_expression(expr_str, expr, 46)
 
 # Both the hd and tl operations are 0(1), because they amount to
 # reading one or the other value from the (head, tail) pair.
+#
+# Once you know the recursive nature of the list, it's simple and
+# efficient to push a new element to the top of the list:
+#
+# iex(1)> a_list = [5, :an_atom, true]
+# [5, :an_atom, true]
+# iex(2)> new_list = [:new_element | a_list]
+# [:new_element, 5, :an_atom, true]
+
+a_list = [5, :an_atom, true]
+expr_str= "a_list = [5, :an_atom, true]"
+expr = inspect(a_list)
+Print.print_expression(expr_str, expr, 28)
+
+new_list = [:new_element | a_list]
+expr_str = "new_list = [:new_element | a_list]"
+expr = inspect(new_list)
+Print.print_expression(expr_str, expr, 22)
+
+# Construction of the new_list is an 0(1) operation, and no memory
+# copying occurs - the tail of the new_list IS the a_list.
