@@ -50,12 +50,12 @@ b2 = "b2"
 a_tuple = {a, b, c}
 expr_str = "a_tuple = {a, b, c}"
 expr = inspect(a_tuple)
-Print.print_expression(expr_str, expr, 24)
+Print.print_expression(expr_str, expr, 29)
 
 new_tuple = put_elem(a_tuple, 1, b2)
 expr_str = "new_tuple = put_elem(a_tuple, 1, b2)"
 expr = inspect(new_tuple)
-Print.print_expression(expr_str, expr, 7)
+Print.print_expression(expr_str, expr, 12)
 
 # If you rebind a_tuple, the variable references another memory
 # location. The old location of a_tuple isn't accessible and is
@@ -65,7 +65,7 @@ Print.print_expression(expr_str, expr, 7)
 a_tuple = put_elem(a_tuple, 1, b2)
 expr_str = "a_tuple = put_elem(a_tuple, 1, b2)"
 expr = inspect(a_tuple)
-Print.print_expression(expr_str, expr, 9)
+Print.print_expression(expr_str, expr, 14)
 
 # Keep in mind that tuples are always copied, by the copying is
 # shallow. Lists, however, have different properties.
@@ -108,26 +108,26 @@ c2 = "c2"
 a_list = [a, b, c, d, e]
 expr_str = "a_list = [a, b, c, d, e]"
 expr = inspect(a_list)
-Print.print_expression(expr_str, expr, 19)
+Print.print_expression(expr_str, expr, 24)
 
 new_list = List.insert_at(a_list, 2, c2)
 expr_str = "new_list = List.insert_at(a_list, 2, c2)"
 expr = inspect(new_list)
-Print.print_expression(expr_str, expr, 1)
+Print.print_expression(expr_str, expr, 8)
 
 new_list = [c2 | a_list]
 expr_str = "new_list = [c2 | a_list]"
 expr = inspect(new_list)
-Print.print_expression(expr_str, expr, 19)
+Print.print_expression(expr_str, expr, 24)
 
 expr_str = "hd(new_list)"
 expr = hd(new_list)
-Print.print_expression(expr_str, expr, 31)
+Print.print_expression(expr_str, expr, 36)
 
 expr = tl(new_list)
 expr_str = "tl(new_list)"
 expr = inspect(expr)
-Print.print_expression(expr_str, expr, 31)
+Print.print_expression(expr_str, expr, 36)
 
 # BENEFITS
 # There are two main benefits if immutability:
@@ -155,3 +155,38 @@ Print.print_expression(expr_str, expr, 31)
 # outputs. When you call a function, you can e sure that no
 # variable will be implcitly changed. Whatever the function
 # does, you must take its result and do something with it.
+#
+# The implicit consequence of immutable data is the ability
+# to hold all versions of a data structure in the program.
+# This makes it possible to perform atomic in-memory
+# operations. If you have a function that performs a series
+# of transformations:
+#
+# def complex_transformation(original_data) do
+#   original_data
+#   |> transformation_1(...)
+#   |> transformation_2(...)
+#   ...
+# end
+#
+# This code starts with the original data and passes it through
+# a series of transformations, each one returning the new,
+# modified version of the input. If something goes wrong, the
+# function complex_transformation can return original_data, which
+# will effectively roll back all of the transformations
+# performed in the function. This is possible because none of the
+# transformations modifies the memory occupied by original_data.
+
+a_string = "Elixir rocks"
+expr_str = "a_string = \"Elixir rocks\""
+Print.print_expression(expr_str, a_string, 23)
+
+expr = a_string |> String.split()
+expr = inspect(expr)
+expr_str = "a_string |> String.split()"
+Print.print_expression(expr_str, expr, 22)
+
+expr = a_string |> String.upcase() |> String.split()
+expr = inspect(expr)
+expr_str = "a_string |> String.split() |> String.upcase()"
+Print.print_expression(expr_str, expr, 1)
