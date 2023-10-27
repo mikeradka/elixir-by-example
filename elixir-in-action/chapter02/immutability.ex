@@ -78,3 +78,24 @@ Print.print_expression(expr_str, expr, 5)
 # This is why adding elements to the end of a list is expensive.
 # To append a new element at the tail, you have to iterate and
 # shallow copy the entire list.
+# In contrast, pushing an element to the top of a list doesn't
+# copy anything, which makes it the least expensive operation.
+# In this case, the new list's tail IS the previous list. This
+# is often used in Elixir programs when iteratively building
+# lists. In such cases, it's best to push consecutive elements
+# to the top.
+#
+# iex(7)> a_list = [a, b, c, d, e]
+# ["a", "b", "c", "d", "e"]
+# iex(8)> new_list = List.insert_at(a_list, 2, c2) # inserting/appending to the tail is expensive
+# ["a", "b", "c2", "c", "d", "e"]
+# iex(9)> new_list = [c2 | a_list]
+# ["c2", "a", "b", "c", "d", "e"]  # pushing to the head of a list is way more efficient
+# iex(10)> hd(a_list)
+# "a"
+# iex(11)> tl(a_list)
+# ["b", "c", "d", "e"]
+# iex(12)> hd(new_list) # remember, a list's head is a single element
+# "c2"
+# iex(13)> tl(new_list)     # a list's tail is itself a list
+# ["a", "b", "c", "d", "e"]
