@@ -83,7 +83,8 @@ Print.print_expression(expr_str, expr, 9)
 # In this case, the new list's tail IS the previous list. This
 # is often used in Elixir programs when iteratively building
 # lists. In such cases, it's best to push consecutive elements
-# to the top.
+# to the top, and then, after the list is constructed, reverse
+# the entire list in a single pass.
 #
 # iex(7)> a_list = [a, b, c, d, e]
 # ["a", "b", "c", "d", "e"]
