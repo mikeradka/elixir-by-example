@@ -69,3 +69,12 @@ Print.print_expression(expr_str, expr, 5)
 
 # Keep in mind that tuples are always copied, by the copying is
 # shallow. Lists, however, have different properties.
+#
+# MODIFYING LISTS
+# When you modify the nth element of a list, the new version will
+# contain shallow copies of the first n-1 elements, followed by
+# the modified element. After that, the tails are completely
+# shared.
+# This is why adding elements to the end of a list is expensive.
+# To append a new element at the tail, you have to iterate and
+# shallow copy the entire list.
