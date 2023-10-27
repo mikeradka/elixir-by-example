@@ -50,12 +50,12 @@ b2 = "b2"
 a_tuple = {a, b, c}
 expr_str = "a_tuple = {a, b, c}"
 expr = inspect(a_tuple)
-Print.print_expression(expr_str, expr, 20)
+Print.print_expression(expr_str, expr, 24)
 
 new_tuple = put_elem(a_tuple, 1, b2)
 expr_str = "new_tuple = put_elem(a_tuple, 1, b2)"
 expr = inspect(new_tuple)
-Print.print_expression(expr_str, expr, 1)
+Print.print_expression(expr_str, expr, 7)
 
 # If you rebind a_tuple, the variable references another memory
 # location. The old location of a_tuple isn't accessible and is
@@ -65,7 +65,7 @@ Print.print_expression(expr_str, expr, 1)
 a_tuple = put_elem(a_tuple, 1, b2)
 expr_str = "a_tuple = put_elem(a_tuple, 1, b2)"
 expr = inspect(a_tuple)
-Print.print_expression(expr_str, expr, 5)
+Print.print_expression(expr_str, expr, 9)
 
 # Keep in mind that tuples are always copied, by the copying is
 # shallow. Lists, however, have different properties.
@@ -99,3 +99,31 @@ Print.print_expression(expr_str, expr, 5)
 # "c2"
 # iex(13)> tl(new_list)     # a list's tail is itself a list
 # ["a", "b", "c", "d", "e"]
+
+d = "d"
+e = "e"
+c2 = "c2"
+
+a_list = [a, b, c, d, e]
+expr_str = "a_list = [a, b, c, d, e]"
+expr = inspect(a_list)
+Print.print_expression(expr_str, expr, 19)
+
+new_list = List.insert_at(a_list, 2, c2)
+expr_str = "new_list = List.insert_at(a_list, 2, c2)"
+expr = inspect(new_list)
+Print.print_expression(expr_str, expr, 1)
+
+new_list = [c2 | a_list]
+expr_str = "new_list = [c2 | a_list]"
+expr = inspect(new_list)
+Print.print_expression(expr_str, expr, 19)
+
+expr_str = "hd(new_list)"
+expr = hd(new_list)
+Print.print_expression(expr_str, expr, 31)
+
+expr = tl(new_list)
+expr_str = "tl(new_list)"
+expr = inspect(expr)
+Print.print_expression(expr_str, expr, 31)
