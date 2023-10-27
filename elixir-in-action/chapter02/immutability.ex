@@ -128,3 +128,30 @@ expr = tl(new_list)
 expr_str = "tl(new_list)"
 expr = inspect(expr)
 Print.print_expression(expr_str, expr, 31)
+
+# BENEFITS
+# There are two main benefits if immutability:
+# 1. Side-effect-free functions, and
+# 2. Data consistency
+# Since data can't be mutated, you can treat most functions
+# as side-effect-free transformations. They take an input and
+# return a result. More complicated programs are written by
+# combining simpler transformations:
+#
+# def complex_transformation(data) do
+#   data
+#   |> transformation_1(...)
+#   |> transformation_2(...)
+#   ...
+#   |> transformation_n(...)
+# end
+#
+# This code relies on the pipeline operator |> that chains
+# two functions together, feeding the result of the previous
+# call as the first argument of the next call.
+#
+# Side-effect-free functions are easier to analyze,
+# understand, and test. They have well-defined inputs and
+# outputs. When you call a function, you can e sure that no
+# variable will be implcitly changed. Whatever the function
+# does, you must take its result and do something with it.
