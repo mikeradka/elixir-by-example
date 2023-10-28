@@ -14,3 +14,4 @@
 - [x] 2.4.4 Lists (`lists.ex`)
 - [x] 2.4.5 Immutability (`immutability.ex`)
 - [ ] 2.4.6 Maps
+- [ ] 2.4.7 Binaries and bitstrings
