@@ -190,3 +190,11 @@ expr = a_string |> String.upcase() |> String.split()
 expr = inspect(expr)
 expr_str = "a_string |> String.split() |> String.upcase()"
 Print.print_expression(expr_str, expr, 1)
+
+expr = a_string |> String.ends_with?("ocks")
+expr_str = "a_string |> String.ends_with?(\"ocks\")"
+Print.print_expression(expr_str, expr, 11)
+
+expr = a_string
+expr_str = "a_string"
+Print.print_expression(expr_str, expr, 40)
