@@ -1,17 +1,17 @@
 # TODO
-- [x] 2.2 Working with variables
-- [x] 2.3.1 Modules (`geometry.ex`)
-- [x] 2.3.2 Functions (`function_defaults.ex`)
-- [x] 2.3.3 Function arity (`arity_demo.ex`, `arity_calc.ex`)
-- [x] 2.3.4 Function visibility (`private_function.ex`)
-- [x] 2.3.5 Imports and aliases (`imports_and_aliases.ex`)
-- [x] 2.3.6 Module attributes (`circle.ex`, `circle2.ex`)
-- [x] 2.3.6 Type specifications (`circle3.ex`)
-- [x] 2.3.7 Comments
-- [x] 2.4.1 Numbers (`numbers.ex`)
-- [x] 2.4.2 Atoms (`atoms.ex`)
-- [x] 2.4.3 Tuples (`tuples.ex`)
-- [x] 2.4.4 Lists (`lists.ex`)
-- [x] 2.4.5 Immutability (`immutability.ex`)
-- [ ] 2.4.6 Maps
 - [ ] 2.4.7 Binaries and bitstrings
+- [ ] 2.4.6 Maps
+- [x] 2.4.5 Immutability (`immutability.ex`)
+- [x] 2.4.4 Lists (`lists.ex`)
+- [x] 2.4.3 Tuples (`tuples.ex`)
+- [x] 2.4.2 Atoms (`atoms.ex`)
+- [x] 2.4.1 Numbers (`numbers.ex`)
+- [x] 2.3.7 Comments
+- [x] 2.3.6 Type specifications (`circle3.ex`)
+- [x] 2.3.6 Module attributes (`circle.ex`, `circle2.ex`)
+- [x] 2.3.5 Imports and aliases (`imports_and_aliases.ex`)
+- [x] 2.3.4 Function visibility (`private_function.ex`)
+- [x] 2.3.3 Function arity (`arity_demo.ex`, `arity_calc.ex`)
+- [x] 2.3.2 Functions (`function_defaults.ex`)
+- [x] 2.3.1 Modules (`geometry.ex`)
+- [x] 2.2 Working with variables
