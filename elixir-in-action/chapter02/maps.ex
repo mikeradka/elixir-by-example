@@ -30,3 +30,15 @@
 #
 # In the second expression, squares[4], you get a nil because
 # no value is associated with the given key.
+#
+# A similar result can be obtained with Map.get/3. On the surface,
+# this function behaves like []. But Map.get/3 allows you to
+# specify the default value, which is returned if the key isn't
+# found. If this default isn't provided, nil will be returned:
+#
+# iex(4)> Map.get(squares, 2)
+# 4
+# iex(5)> Map.get(squares, 4)
+# nil
+# iex(6)> Map.get(squares, 4, :not_found)
+# :not_found
