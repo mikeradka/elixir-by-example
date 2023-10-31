@@ -91,3 +91,17 @@ Print.print_expression(expr_str, expr, 27)
 expr = Map.get(squares, 4, :not_found)
 expr_str = "Map.get(squares, 4, :not_found)"
 Print.print_expression(expr_str, expr, 15)
+
+# Notice that in the last expression you don't precisely
+# know whether there's no value under the given key, or
+# if the value is :not_found. If you want to precisely
+# distinguish between these cases, you can use Map.fetch/2:
+#
+# iex(2)> Map.fetch(squares, 2)
+# {:ok, 4}
+# iex(3)> Map.fetch(squares, 4)
+# :error
+#
+# As you can see, in the successful case you'll get a value
+# in the shape of {:ok, value}. This format makes it possible
+# to precisely detect the case when the key isn't present.
