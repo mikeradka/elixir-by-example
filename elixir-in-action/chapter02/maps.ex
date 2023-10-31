@@ -153,4 +153,30 @@ Print.print_expression(expr_str, expr, 13)
 #
 # STRUCTURED DATA
 #
+# Maps are the go-to type for managing key/value data structures
+# of an arbitrary size. But they're also frequently used in
+# Elixir to combine a couple of fields into a single structure.
+# This use-case somewhat overlaps with tuples, but it provies
+# the advantage of allowing you to access fields by name.
+# Take a map that represents a single person:
 #
+# iex(1)> bob = %{:name => "Bob", :age => 25, :works_at => "Initech"}
+# %{name: "Bob", age: 25, works_at: "Initech"}
+#
+# If keys are atoms, you can write this a bit shorter:
+#
+# iex(2)> bob = %{name: "Bob", age: 25, works_at: "Initech"}
+# %{name: "Bob", age: 25, works_at: "Initech"}
+#
+# To retrieve a field, you can use the [] operator:
+# iex(3)> bob[:works_at]
+# "Initech"
+# iex(4)> bob[:nonexistant_field]
+# nil
+#
+# Atom keys again receive special syntax treatment. The
+# following snippet fetches a value stored under the
+# :age key:
+#
+# iex(5)> bob.age
+# 25
