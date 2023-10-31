@@ -180,3 +180,27 @@ Print.print_expression(expr_str, expr, 13)
 #
 # iex(5)> bob.age
 # 25
+#
+# With this syntax you'll get an error if you try to fetch a
+# nonexistant field:
+# iex(6)> bob.nonexistant_field
+# ** (KeyError) key :nonexistant_field not found in: %{name: "Bob", age: 25, works_at: "Initech"}
+#     iex:6: (file)
+#
+# To change a field value, you can use the following syntax:
+#
+# iex(6)> next_years_bob = %{bob | age: 26}
+# %{name: "Bob", age: 26, works_at: "Initech"}
+#
+# This syntax can be used to change multiple attributes as well:
+#
+# iex(10)> %{bob | age: 26, works_at: "Initrode"}
+# %{name: "Bob", age: 26, works_at: "Initrode"}
+#
+# But you can only modify values that already exist in the map.
+# This makes the update syntax a perfect choice for powering
+# maps that represent structures. If you mistype a field
+# name, you'll get an immediate runtime error:
+#
+# iex(12)> %{bob | works_in: "Initech"}
+# ** (KeyError) key :works_in not found
