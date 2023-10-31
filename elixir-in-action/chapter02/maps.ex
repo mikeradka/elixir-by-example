@@ -61,7 +61,7 @@ Print.print_expression(expr_str, expr, 36)
 
 expr = squares[4]
 expr_str = "squares[4]"
-expr = inspect(squares[4])
+expr = inspect(expr)
 Print.print_expression(expr_str, expr, 36)
 
 # In the second expression, squares[4], you get a nil because
@@ -78,3 +78,16 @@ Print.print_expression(expr_str, expr, 36)
 # nil
 # iex(6)> Map.get(squares, 4, :not_found)
 # :not_found
+
+expr = Map.get(squares, 2)
+expr_str = "Map.get(squares, 2)"
+Print.print_expression(expr_str, expr, 27)
+
+expr = Map.get(squares, 4)
+expr_str = "Map.get(squares, 4)"
+expr = inspect(expr)
+Print.print_expression(expr_str, expr, 27)
+
+expr = Map.get(squares, 4, :not_found)
+expr_str = "Map.get(squares, 4, :not_found)"
+Print.print_expression(expr_str, expr, 15)
