@@ -126,14 +126,25 @@ Print.print_expression(expr_str, expr, 25)
 # ** (KeyError) key 4 not found in: %{1 => 1, 2 => 4, 3 => 9}
 #     (stdlib 5.0.2) :maps.get(4, %{1 => 1, 2 => 4, 3 => 9})
 #     iex:5: (file)
-#
+
+expr = Map.fetch!(squares, 2)
+expr_str = "Map.fetch!(squares, 2)"
+Print.print_expression(expr_str, expr, 24)
+
+## Map.fetch!(squares, 4)
+
 # To store a new element to the map, you can use Map.put/3:
 #
 # iex(7)> squares = Map.put(squares, 4, 16)
 # %{1 => 1, 2 => 4, 3 => 9, 4 => 16}
 # iex(8)> squares[4]
 # 16
-#
+
+squares = Map.put(squares, 4, 16)
+expr = inspect(squares)
+expr_str = "squares = Map.put(squares, 4, 16)"
+Print.print_expression(expr_str, expr, 13)
+
 # There are a bunch of other helpful functions in the Map
 # module, such as Map.update/4 or Map.delete/2. You can look
 # into the official documentation at https://hexdocs.pm/elixir/Map.html
