@@ -101,7 +101,17 @@ Print.print_expression(expr_str, expr, 15)
 # {:ok, 4}
 # iex(3)> Map.fetch(squares, 4)
 # :error
-#
+
+expr = Map.fetch(squares, 2)
+expr_str = "Map.fetch(squares, 2)"
+expr = inspect(expr)
+Print.print_expression(expr_str, expr, 25)
+
+expr = Map.fetch(squares, 4)
+expr_str = "Map.fetch(squares, 4)"
+expr = inspect(expr)
+Print.print_expression(expr_str, expr, 25)
+
 # As you can see, in the successful case you'll get a value
 # in the shape of {:ok, value}. This format makes it possible
 # to precisely detect the case when the key isn't present.
