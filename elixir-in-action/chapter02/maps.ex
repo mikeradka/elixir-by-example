@@ -115,3 +115,31 @@ Print.print_expression(expr_str, expr, 25)
 # As you can see, in the successful case you'll get a value
 # in the shape of {:ok, value}. This format makes it possible
 # to precisely detect the case when the key isn't present.
+#
+# Sometimes you want to proceed only if the key is in the
+# map, and raise an exception otherwise. This can be done
+# with the Map.fetch!/2 function:
+#
+# iex(4)> Map.fetch!(squares, 2)
+# 4
+# iex(5)> Map.fetch!(squares, 4)
+# ** (KeyError) key 4 not found in: %{1 => 1, 2 => 4, 3 => 9}
+#     (stdlib 5.0.2) :maps.get(4, %{1 => 1, 2 => 4, 3 => 9})
+#     iex:5: (file)
+#
+# To store a new element to the map, you can use Map.put/3:
+#
+# iex(7)> squares = Map.put(squares, 4, 16)
+# %{1 => 1, 2 => 4, 3 => 9, 4 => 16}
+# iex(8)> squares[4]
+# 16
+#
+# There are a bunch of other helpful functions in the Map
+# module, such as Map.update/4 or Map.delete/2. You can look
+# into the official documentation at https://hexdocs.pm/elixir/Map.html
+# In addition, a map is enumerable, which means that all the
+# functions from the Enum module work with maps.
+#
+# STRUCTURED DATA
+#
+#
