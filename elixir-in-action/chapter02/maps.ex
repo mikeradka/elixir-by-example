@@ -25,13 +25,18 @@ end
 empty_map = %{}
 expr_str = "empty_map = %{}"
 expr = inspect(empty_map)
-Print.print_expression(expr_str, expr, 0)
+Print.print_expression(expr_str, expr, 23)
 
 # A map with some values can be created this way:
 #
 # iex(1)> squares = %{1 => 1, 2 => 4, 3 => 9}
 # %{1 => 1, 2 => 4, 3 => 9}
-#
+
+squares = %{1 => 1, 2 => 4, 3 => 9}
+expr_str = "squares = %{1 => 1, 2 => 4, 3 => 9}"
+expr = inspect(squares)
+Print.print_expression(expr_str, expr, 0)
+
 # You can also prepopulate a map with the Map.new/1 function.
 # The function takes an enumerable where each element is a
 # tuple of size two (a pair):
