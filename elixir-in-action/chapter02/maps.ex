@@ -204,3 +204,17 @@ Print.print_expression(expr_str, expr, 13)
 #
 # iex(12)> %{bob | works_in: "Initech"}
 # ** (KeyError) key :works_in not found
+#
+# Using maps to hold structured data is a frequent pattern
+# in Elixir. The common pattern is to provide all the fields
+# while creating the map, using atoms as keys. If the value
+# for some field isn't available, you can set it to nil. Such
+# a map, then, always has all the fields. Using the update
+# syntax, you can modify the map. Finally, to fetch a desired
+# field, you can use the a_map.some_field syntax.
+#
+# Of course, such data is still a map, so you can also use
+# the functions from the Map module, such as Map.put/3 or
+# Map.fetch/2. But these functions are usually suitable for
+# the cases where maps are used to manage a dynamically
+# sized key/value structure.
