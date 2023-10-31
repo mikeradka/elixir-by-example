@@ -54,7 +54,16 @@ Print.print_expression(expr_str, expr, 0)
 # 4
 # iex(3)> squares[4]
 # nil
-#
+
+expr = squares[2]
+expr_str = "squares[2]"
+Print.print_expression(expr_str, expr, 36)
+
+expr = squares[4]
+expr_str = "squares[4]"
+expr = inspect(squares[4])
+Print.print_expression(expr_str, expr, 36)
+
 # In the second expression, squares[4], you get a nil because
 # no value is associated with the given key.
 #
