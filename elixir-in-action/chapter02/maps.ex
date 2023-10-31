@@ -164,7 +164,7 @@ Print.print_expression(expr_str, expr, 29)
 # %{name: "Bob", age: 25, works_at: "Initech"}
 
 bob = %{:name => "Bob", :age => 25, :works_at => "Initech"}
-expr_str = "bob = %{:name => \"Bob\", :age => 25, :works_at => \"Initech\"}"
+expr_str = ~s(bob = %{:name => "Bob", :age => 25, :works_at => "Initech"})
 expr = inspect(bob)
 Print.print_expression(expr_str, expr, 0)
 
@@ -174,7 +174,7 @@ Print.print_expression(expr_str, expr, 0)
 # %{name: "Bob", age: 25, works_at: "Initech"}
 
 bob = %{name: "Bob", age: 25, works_at: "Initech"}
-expr_str = "bob = %{name: \"Bob\", age: 25, works_at: \"Initech\"}"
+expr_str = ~s(bob = %{name: "Bob", age: 25, works_at: "Initech"})
 expr = inspect(bob)
 Print.print_expression(expr_str, expr, 12)
 
@@ -227,7 +227,7 @@ Print.print_expression(expr_str, expr, 29)
 
 more_bob = %{bob | age: 26, works_at: "Initrode"}
 expr = inspect(more_bob)
-expr_str = "more_bob = %{bob | age: 26, works_at: \"Initrode\"}"
+expr_str = ~s(more_bob = %{bob | age: 26, works_at: "Initrode"})
 Print.print_expression(expr_str, expr, 13)
 
 # But you can only modify values that already exist in the map.
