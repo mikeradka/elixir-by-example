@@ -21,7 +21,12 @@ end
 #
 # iex(1)> empty_map = %{}
 # %{}
-#
+
+empty_map = %{}
+expr_str = "empty_map = %{}"
+expr = inspect(empty_map)
+Print.print_expression(expr_str, expr, 0)
+
 # A map with some values can be created this way:
 #
 # iex(1)> squares = %{1 => 1, 2 => 4, 3 => 9}
