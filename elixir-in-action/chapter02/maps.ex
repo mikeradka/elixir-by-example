@@ -25,7 +25,7 @@ end
 empty_map = %{}
 expr_str = "empty_map = %{}"
 expr = inspect(empty_map)
-Print.print_expression(expr_str, expr, 31)
+Print.print_expression(expr_str, expr, 47)
 
 # A map with some values can be created this way:
 #
@@ -35,7 +35,7 @@ Print.print_expression(expr_str, expr, 31)
 squares = %{1 => 1, 2 => 4, 3 => 9}
 expr_str = "squares = %{1 => 1, 2 => 4, 3 => 9}"
 expr = inspect(squares)
-Print.print_expression(expr_str, expr, 11)
+Print.print_expression(expr_str, expr, 27)
 
 # You can also prepopulate a map with the Map.new/1 function.
 # The function takes an enumerable where each element is a
@@ -46,7 +46,7 @@ Print.print_expression(expr_str, expr, 11)
 squares = Map.new([{1, 1}, {2, 4}, {3, 9}])
 expr_str = "squares = Map.new([{1, 1}, {2, 4}, {3, 9}])"
 expr = inspect(squares)
-Print.print_expression(expr_str, expr, 0)
+Print.print_expression(expr_str, expr, 19)
 
 # To fetch a value at the given key, you can use the following:
 #
@@ -57,12 +57,12 @@ Print.print_expression(expr_str, expr, 0)
 
 expr = squares[2]
 expr_str = "squares[2]"
-Print.print_expression(expr_str, expr, 36)
+Print.print_expression(expr_str, expr, 52)
 
 expr = squares[4]
 expr_str = "squares[4]"
 expr = inspect(expr)
-Print.print_expression(expr_str, expr, 36)
+Print.print_expression(expr_str, expr, 52)
 
 # In the second expression, squares[4], you get a nil because
 # no value is associated with the given key.
@@ -81,16 +81,16 @@ Print.print_expression(expr_str, expr, 36)
 
 expr = Map.get(squares, 2)
 expr_str = "Map.get(squares, 2)"
-Print.print_expression(expr_str, expr, 27)
+Print.print_expression(expr_str, expr, 43)
 
 expr = Map.get(squares, 4)
 expr_str = "Map.get(squares, 4)"
 expr = inspect(expr)
-Print.print_expression(expr_str, expr, 27)
+Print.print_expression(expr_str, expr, 43)
 
 expr = Map.get(squares, 4, :not_found)
 expr_str = "Map.get(squares, 4, :not_found)"
-Print.print_expression(expr_str, expr, 15)
+Print.print_expression(expr_str, expr, 31)
 
 # Notice that in the last expression you don't precisely
 # know whether there's no value under the given key, or
@@ -105,12 +105,12 @@ Print.print_expression(expr_str, expr, 15)
 expr = Map.fetch(squares, 2)
 expr_str = "Map.fetch(squares, 2)"
 expr = inspect(expr)
-Print.print_expression(expr_str, expr, 25)
+Print.print_expression(expr_str, expr, 41)
 
 expr = Map.fetch(squares, 4)
 expr_str = "Map.fetch(squares, 4)"
 expr = inspect(expr)
-Print.print_expression(expr_str, expr, 25)
+Print.print_expression(expr_str, expr, 41)
 
 # As you can see, in the successful case you'll get a value
 # in the shape of {:ok, value}. This format makes it possible
@@ -129,7 +129,7 @@ Print.print_expression(expr_str, expr, 25)
 
 expr = Map.fetch!(squares, 2)
 expr_str = "Map.fetch!(squares, 2)"
-Print.print_expression(expr_str, expr, 24)
+Print.print_expression(expr_str, expr, 40)
 
 ## Map.fetch!(squares, 4)
 
@@ -143,7 +143,7 @@ Print.print_expression(expr_str, expr, 24)
 squares = Map.put(squares, 4, 16)
 expr = inspect(squares)
 expr_str = "squares = Map.put(squares, 4, 16)"
-Print.print_expression(expr_str, expr, 13)
+Print.print_expression(expr_str, expr, 29)
 
 # There are a bunch of other helpful functions in the Map
 # module, such as Map.update/4 or Map.delete/2. You can look
@@ -162,25 +162,48 @@ Print.print_expression(expr_str, expr, 13)
 #
 # iex(1)> bob = %{:name => "Bob", :age => 25, :works_at => "Initech"}
 # %{name: "Bob", age: 25, works_at: "Initech"}
-#
+
+bob = %{:name => "Bob", :age => 25, :works_at => "Initech"}
+expr_str = "bob = %{:name => \"Bob\", :age => 25, :works_at => \"Initech\"}"
+expr = inspect(bob)
+Print.print_expression(expr_str, expr, 0)
+
 # If keys are atoms, you can write this a bit shorter:
 #
 # iex(2)> bob = %{name: "Bob", age: 25, works_at: "Initech"}
 # %{name: "Bob", age: 25, works_at: "Initech"}
-#
+
+bob = %{name: "Bob", age: 25, works_at: "Initech"}
+expr_str = "bob = %{name: \"Bob\", age: 25, works_at: \"Initech\"}"
+expr = inspect(bob)
+Print.print_expression(expr_str, expr, 12)
+
 # To retrieve a field, you can use the [] operator:
 # iex(3)> bob[:works_at]
 # "Initech"
 # iex(4)> bob[:nonexistant_field]
 # nil
-#
+
+expr = bob[:works_at]
+expr_str = "bob[:works_at]"
+Print.print_expression(expr_str, expr, 48)
+
+expr = bob[:nonexistant_field]
+expr = inspect(expr)
+expr_str = "bob[:nonexistant_field]"
+Print.print_expression(expr_str, expr, 39)
+
 # Atom keys again receive special syntax treatment. The
 # following snippet fetches a value stored under the
 # :age key:
 #
 # iex(5)> bob.age
 # 25
-#
+
+expr = bob.age
+expr_str = "bob.age"
+Print.print_expression(expr_str, expr, 55)
+
 # With this syntax you'll get an error if you try to fetch a
 # nonexistant field:
 # iex(6)> bob.nonexistant_field
