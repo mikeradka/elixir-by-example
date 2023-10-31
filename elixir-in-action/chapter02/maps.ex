@@ -1,3 +1,15 @@
+defmodule Print do
+  @moduledoc "Implements basic printing functions"
+
+  import IO
+
+  @doc "Prints the expression input and output with some padding"
+  def print_expression(input, output, padding) do
+    pad = String.pad_leading(" : ", padding)
+    puts(input <> pad <> to_string(output))
+  end
+end
+
 # MAPS
 # A map is a key/value store, where keys and values can be any
 # term. Maps have dual usage in Elixir.
