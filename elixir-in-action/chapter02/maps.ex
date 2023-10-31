@@ -214,12 +214,22 @@ Print.print_expression(expr_str, expr, 55)
 #
 # iex(6)> next_years_bob = %{bob | age: 26}
 # %{name: "Bob", age: 26, works_at: "Initech"}
-#
+
+next_years_bob = %{bob | age: 26}
+expr = inspect(next_years_bob)
+expr_str = "next_years_bob = %{bob | age: 26}"
+Print.print_expression(expr_str, expr, 29)
+
 # This syntax can be used to change multiple attributes as well:
 #
 # iex(10)> %{bob | age: 26, works_at: "Initrode"}
 # %{name: "Bob", age: 26, works_at: "Initrode"}
-#
+
+more_bob = %{bob | age: 26, works_at: "Initrode"}
+expr = inspect(more_bob)
+expr_str = "more_bob = %{bob | age: 26, works_at: \"Initrode\"}"
+Print.print_expression(expr_str, expr, 13)
+
 # But you can only modify values that already exist in the map.
 # This makes the update syntax a perfect choice for powering
 # maps that represent structures. If you mistype a field
