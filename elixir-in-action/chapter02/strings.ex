@@ -45,6 +45,7 @@ expr_str = ~s("Embedded expression: #{3 + 0.14}")
 Print.print_expression(expr_str, expr, 0)
 
 # Classical \ escaping works as you're used to:
+#
 # iex(1)> "\r \n \" \\"
 # "\r \n \" \\"
 
@@ -53,6 +54,7 @@ expr_str = ~S("\r \n \" \\")
 Print.print_expression(expr_str, expr, 0)
 
 # And strings don't have to finish on the same line:
+#
 # iex(1)> "
 # ...(1)> This is
 # ...(1)> a multiline string
@@ -64,3 +66,8 @@ This is
 a multiline string
 "
 IO.puts(expr)
+
+# Elixir provides another syntax for declaring strings,
+# so-called sigils. In this approach, you enclose the string
+# inside ~():
+#
