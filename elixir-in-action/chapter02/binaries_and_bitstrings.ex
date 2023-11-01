@@ -22,7 +22,7 @@ end
 expr = <<1, 2, 3>>
 expr_str = "<<1, 2, 3>>"
 expr = inspect(expr)
-Print.print_expression(expr_str, expr, 7)
+Print.print_expression(expr_str, expr, 12)
 
 # Each number represents the value of the corresponding byte.
 # If you provide a byte value bigger than 255, it's truncated
@@ -38,22 +38,22 @@ Print.print_expression(expr_str, expr, 7)
 expr = <<255>>
 expr_str = "<<255>>"
 expr = inspect(expr)
-Print.print_expression(expr_str, expr, 11)
+Print.print_expression(expr_str, expr, 16)
 
 expr = <<256>>
 expr_str = "<<256>>"
 expr = inspect(expr)
-Print.print_expression(expr_str, expr, 11)
+Print.print_expression(expr_str, expr, 16)
 
 expr = <<257>>
 expr_str = "<<257>>"
 expr = inspect(expr)
-Print.print_expression(expr_str, expr, 11)
+Print.print_expression(expr_str, expr, 16)
 
 expr = <<512>>
 expr_str = "<<512>>"
 expr = inspect(expr)
-Print.print_expression(expr_str, expr, 11)
+Print.print_expression(expr_str, expr, 16)
 
 # You can specify the size of each value and thus tell the
 # compiler how many bits to use for that particular value:
@@ -64,7 +64,7 @@ Print.print_expression(expr_str, expr, 11)
 expr = <<257::16>>
 expr_str = "<<257::16>>"
 expr = inspect(expr)
-Print.print_expression(expr_str, expr, 7)
+Print.print_expression(expr_str, expr, 12)
 
 # This expression places the number 257 into 16 bits of
 # consecutive memory space. The output indicates that you
@@ -82,7 +82,7 @@ Print.print_expression(expr_str, expr, 7)
 expr = <<1::4, 15::4>>
 expr_str = "<<1::4, 15::4>>"
 expr = inspect(expr)
-Print.print_expression(expr_str, expr, 0)
+Print.print_expression(expr_str, expr, 8)
 
 # The resulting value has 1 byte and is represented in the
 # output using the normalized form 31 (0001 1111)
@@ -92,7 +92,12 @@ Print.print_expression(expr_str, expr, 0)
 #
 # iex(9)> <<1::1, 0::1, 1::1>>
 # <<5::size(3)>>
-#
+
+expr = <<1::1, 0::1, 1::1>>
+expr_str = "<<1::1, 0::1, 1::1>>"
+expr = inspect(expr)
+Print.print_expression(expr_str, expr, 0)
+
 # You can also concatenate two binaries or bitstrings with
 # the operator <>:
 #
