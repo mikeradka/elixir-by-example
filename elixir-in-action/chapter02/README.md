@@ -1,7 +1,7 @@
 # TODO
 - [ ] 2.4.9 First-class functions
 - [ ] 2.4.8 Strings
-- [ ] 2.4.7 Binaries and bitstrings (`binaries_and_bitstrings.ex`)
+- [x] 2.4.7 Binaries and bitstrings (`binaries_and_bitstrings.ex`)
 - [x] 2.4.6 Maps (`maps.ex`)
 - [x] 2.4.5 Immutability (`immutability.ex`)
 - [x] 2.4.4 Lists (`lists.ex`)
