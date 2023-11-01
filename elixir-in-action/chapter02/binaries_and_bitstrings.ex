@@ -103,7 +103,12 @@ Print.print_expression(expr_str, expr, 0)
 #
 # iex(10)> <<1, 2>> <> <<3, 4>>
 # <<1, 2, 3, 4>>
-#
+
+expr = <<1, 2>> <> <<3, 4>>
+expr_str = "<<1, 2>> <> <<3, 4>>"
+expr = inspect(expr)
+Print.print_expression(expr_str, expr, 0)
+
 # There's much more that can be done with binaries, but
 # the most important thing is that they're consecutive
 # sequences of bytes. Binaries play an important role in
