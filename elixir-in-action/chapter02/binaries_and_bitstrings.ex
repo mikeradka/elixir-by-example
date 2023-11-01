@@ -22,7 +22,7 @@ end
 expr = <<1, 2, 3>>
 expr_str = "<<1, 2, 3>>"
 expr = inspect(expr)
-Print.print_expression(expr_str, expr, 0)
+Print.print_expression(expr_str, expr, 7)
 
 # Each number represents the value of the corresponding byte.
 # If you provide a byte value bigger than 255, it's truncated
@@ -38,29 +38,34 @@ Print.print_expression(expr_str, expr, 0)
 expr = <<255>>
 expr_str = "<<255>>"
 expr = inspect(expr)
-Print.print_expression(expr_str, expr, 7)
+Print.print_expression(expr_str, expr, 11)
 
 expr = <<256>>
 expr_str = "<<256>>"
 expr = inspect(expr)
-Print.print_expression(expr_str, expr, 7)
+Print.print_expression(expr_str, expr, 11)
 
 expr = <<257>>
 expr_str = "<<257>>"
 expr = inspect(expr)
-Print.print_expression(expr_str, expr, 7)
+Print.print_expression(expr_str, expr, 11)
 
 expr = <<512>>
 expr_str = "<<512>>"
 expr = inspect(expr)
-Print.print_expression(expr_str, expr, 7)
+Print.print_expression(expr_str, expr, 11)
 
 # You can specify the size of each value and thus tell the
 # compiler how many bits to use for that particular value:
 #
 # iex(1)> <<257::16>>
 # <<1, 1>>
-#
+
+expr = <<257::16>>
+expr_str = "<<257::16>>"
+expr = inspect(expr)
+Print.print_expression(expr_str, expr, 7)
+
 # This expression places the number 257 into 16 bits of
 # consecutive memory space. The output indicates that you
 # use 2 bytes, both having a value of 1. This is due to the
@@ -73,7 +78,12 @@ Print.print_expression(expr_str, expr, 7)
 #
 # iex(5)> <<1::4, 15::4>>
 # <<31>>
-#
+
+expr = <<1::4, 15::4>>
+expr_str = "<<1::4, 15::4>>"
+expr = inspect(expr)
+Print.print_expression(expr_str, expr, 0)
+
 # The resulting value has 1 byte and is represented in the
 # output using the normalized form 31 (0001 1111)
 #
