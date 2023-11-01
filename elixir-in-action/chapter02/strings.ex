@@ -25,5 +25,21 @@ end
 # "This is a string"
 
 expr = "This is a string"
-expr_str = "This is a string"
+expr_str = ~s("This is a string")
+Print.print_expression(expr_str, expr, 12)
+
+# The result is printed as a string, but underneath it's a
+# binary - nothing more than a ceonsecutive sequence of bytes.
+#
+# Elixir provides support for embedded string expressions. You
+# can use #{} to place an Elixir expression in a string constant.
+# The expression is immediately evaluated, and its string
+# representation is placed at the corresponding location in
+# the string:
+#
+# iex(4)> "Embedded expression: #{3 + 0.14}"
+# "Embedded expression: 3.14"
+
+expr = "Embedded expression: #{3 + 0.14}"
+expr_str = ~s("Embedded expression: #{3 + 0.14}")
 Print.print_expression(expr_str, expr, 0)
