@@ -76,3 +76,20 @@ Print.print_expression(expr_str, expr, 7)
 #
 # The resulting value has 1 byte and is represented in the
 # output using the normalized form 31 (0001 1111)
+#
+# If the total size of all values isn't a multiple of 8, the
+# binary is called a bitstring - a sequence of bits
+#
+# iex(9)> <<1::1, 0::1, 1::1>>
+# <<5::size(3)>>
+#
+# You can also concatenate two binaries or bitstrings with
+# the operator <>:
+#
+# iex(10)> <<1, 2>> <> <<3, 4>>
+# <<1, 2, 3, 4>>
+#
+# There's much more that can be done with binaries, but
+# the most important thing is that they're consecutive
+# sequences of bytes. Binaries play an important role in
+# support for strings.
