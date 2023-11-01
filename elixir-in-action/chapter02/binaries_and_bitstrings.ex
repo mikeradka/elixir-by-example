@@ -54,3 +54,25 @@ expr = <<512>>
 expr_str = "<<512>>"
 expr = inspect(expr)
 Print.print_expression(expr_str, expr, 7)
+
+# You can specify the size of each value and thus tell the
+# compiler how many bits to use for that particular value:
+#
+# iex(1)> <<257::16>>
+# <<1, 1>>
+#
+# This expression places the number 257 into 16 bits of
+# consecutive memory space. The output indicates that you
+# use 2 bytes, both having a value of 1. This is due to the
+# binary representation of 257, which in 16-bit form is
+# written 00000001 00000001.
+#
+# The size specifier is in bits and need not be a multiplier
+# of 8. The following snippet creates a binary by combining
+# two 4-bit values:
+#
+# iex(5)> <<1::4, 15::4>>
+# <<31>>
+#
+# The resulting value has 1 byte and is represented in the
+# output using the normalized form 31 (0001 1111)
