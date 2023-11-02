@@ -11,13 +11,11 @@ defmodule Print do
 end
 
 # STRINGS
-#
 # Elixir doesn't have a dedicated string type.
 # Instead, strings are represented by using either a binary
 # or a list type.
 #
 # BINARY STRINGS
-#
 # The most common way to use strings is to specify them with
 # the familiar double-quotes syntax:
 #
@@ -134,4 +132,30 @@ Print.print_expression(expr_str, expr, 11)
 # https://hexdocs.pm/elixir/String.html
 #
 # CHARACTER LISTS
+# The alternative way of representing strings is to use
+# single-quote syntax:
 #
+# iex(1)> 'ABC'
+# ~c"ABC"
+
+expr = 'ABC'
+expr_str = "'ABC'"
+Print.print_expression(expr_str, expr, 40)
+
+# This creates a character list, which is a list of integers
+# in which each element represents a single character.
+#
+# The previous result is exactly the same as if you manually
+# construct the list of integers:
+#
+# iex(3)> [65, 66, 67]
+# ~c"ABC"
+
+expr = [65, 66, 67]
+expr_str = "[65, 66, 67]"
+Print.print_expression(expr_str, expr, 33)
+
+# Even the runtime doesn't distinguish between a list of
+# integers and a character list. When a list consists of
+# integers that represent printable characters, it's printed
+# on the screen in the string form.
