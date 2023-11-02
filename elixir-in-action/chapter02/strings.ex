@@ -202,13 +202,21 @@ IO.puts(expr)
 #
 # iex(9)> String.to_charlist("ABC")
 # ~c"ABC"
-#
+
+expr = String.to_charlist("ABC")
+expr_str = ~s(String.to_charlist("ABC"\))
+Print.print_expression(expr_str, expr, 20)
+
 # To convert a character list to a binary string, you can use
 # List.to_string/1
 #
 # iex(11)> List.to_string([65, 66, 67])
 # "ABC"
-#
+
+expr = List.to_string([65, 66, 67])
+expr_str = "List.to_string([65, 66, 67])"
+Print.print_expression(expr_str, expr, 17)
+
 # In general, you should prefer binary strings as much as
 # possible, using character lists only when some third-party
 # library (most often written in Erlang) requires it.
