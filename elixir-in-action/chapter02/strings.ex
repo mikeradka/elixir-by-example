@@ -162,18 +162,35 @@ Print.print_expression(expr_str, expr, 33)
 #
 # iex(5)> 'Interpolation: #{3 + 0.14}'
 # ~c"Interpolation: 3.14"
-#
+
+expr = 'Interpolation: #{3 + 0.14}'
+expr_str = "'Interpolation: #{3 + 0.14}'"
+Print.print_expression(expr_str, expr, 24)
+
 # iex(6)> ~c(Character list sigil)
 # ~c"Character list sigil"
-#
+
+expr = ~c(Character list sigil)
+expr_str = "~c(Character list sigil)"
+Print.print_expression(expr_str, expr, 21)
+
 # iex(7)> ~C(Unescaped sigil #{3 + 0.14})
 # ~c"Unescaped sigil \#{3 + 0.14}"
-#
+
+expr = ~C(Unescaped sigil #{3 + 0.14})
+expr_str = "~C(Unescaped sigil #{3 + 0.14})"
+Print.print_expression(expr_str, expr, 21)
+
 # iex(8)> '''
 # ...(8)> Heredoc
 # ...(8)> '''
 # ~c"Heredoc\n"
-#
+
+expr = '''
+Character list heredoc
+'''
+IO.puts(expr)
+
 # Character lists aren't compatible with binary strings. Most
 # of the operations from the String module won't work with
 # character lists. In general, you should prefer binary strings
