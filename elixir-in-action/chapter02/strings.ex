@@ -159,3 +159,17 @@ Print.print_expression(expr_str, expr, 33)
 # integers and a character list. When a list consists of
 # integers that represent printable characters, it's printed
 # on the screen in the string form.
+#
+# iex(5)> 'Interpolation: #{3 + 0.14}'
+# ~c"Interpolation: 3.14"
+#
+# iex(6)> ~c(Character list sigil)
+# ~c"Character list sigil"
+#
+# iex(7)> ~C(Unescaped sigil #{3 + 0.14})
+# ~c"Unescaped sigil \#{3 + 0.14}"
+#
+# iex(8)> '''
+# ...(8)> Heredoc
+# ...(8)> '''
+# ~c"Heredoc\n"
