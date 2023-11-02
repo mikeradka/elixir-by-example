@@ -26,7 +26,7 @@ end
 
 expr = "This is a string"
 expr_str = ~s("This is a string")
-Print.print_expression(expr_str, expr, 12)
+Print.print_expression(expr_str, expr, 27)
 
 # The result is printed as a string, but underneath it's a
 # binary - nothing more than a ceonsecutive sequence of bytes.
@@ -42,7 +42,7 @@ Print.print_expression(expr_str, expr, 12)
 
 expr = "Embedded expression: #{3 + 0.14}"
 expr_str = ~s("Embedded expression: #{3 + 0.14}")
-Print.print_expression(expr_str, expr, 0)
+Print.print_expression(expr_str, expr, 18)
 
 # Classical \ escaping works as you're used to:
 #
@@ -71,3 +71,18 @@ IO.puts(expr)
 # so-called sigils. In this approach, you enclose the string
 # inside ~():
 #
+# iex(2)> ~s(This is also a string)
+# "This is also a string"
+
+expr = ~s(This is also a string)
+expr_str = "~s(This is also a string)"
+Print.print_expression(expr_str, expr, 20)
+
+# Sigils can be useful if you want to include quotes in a string:
+#
+# iex(3)> ~s("Do or do not. There is no try." -Yoda)
+# "\"Do or do not. There is no try.\" -Yoda"
+
+expr = ~s("Do or do not. There is no try." -Yoda)
+expr_str = "~s(\"Do or do not. There is no try.\" -Yoda)"
+Print.print_expression(expr_str, expr, 0)
