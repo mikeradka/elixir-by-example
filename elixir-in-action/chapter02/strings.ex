@@ -86,3 +86,16 @@ Print.print_expression(expr_str, expr, 20)
 expr = ~s("Do or do not. There is no try." -Yoda)
 expr_str = "~s(\"Do or do not. There is no try.\" -Yoda)"
 Print.print_expression(expr_str, expr, 0)
+
+# There's also an uppercase version ~S that doesn't handle
+# interpolation or escape characters (\):
+#
+# iex(4)> ~S(Not interpolated #{3 + 0.14})
+# "Not interpolated \#{3 + 0.14}"
+#
+# iex(5)> ~S(Not escaped \n)
+# "Not escaped \\n"
+
+expr = ~S(Not interpolated #{3 + 0.14})
+expr_str = "~S(Not interpolated #{3 + 0.14})"
+Print.print_expression(expr_str, expr, 20)
