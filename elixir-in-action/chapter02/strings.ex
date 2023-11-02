@@ -173,3 +173,25 @@ Print.print_expression(expr_str, expr, 33)
 # ...(8)> Heredoc
 # ...(8)> '''
 # ~c"Heredoc\n"
+#
+# Character lists aren't compatible with binary strings. Most
+# of the operations from the String module won't work with
+# character lists. In general, you should prefer binary strings
+# over character lists. Occasionally, functions may work only
+# with character lists. This mostly happens with pure Erlang
+# libraries. In this case, you can convert a binary string to
+# a character list version using the String.to_charlist/1
+# function:
+#
+# iex(9)> String.to_charlist("ABC")
+# ~c"ABC"
+#
+# To convert a character list to a binary string, you can use
+# List.to_string/1
+#
+# iex(11)> List.to_string([65, 66, 67])
+# "ABC"
+#
+# In general, you should prefer binary strings as much as
+# possible, using character lists only when some third-party
+# library (most often written in Erlang) requires it.
