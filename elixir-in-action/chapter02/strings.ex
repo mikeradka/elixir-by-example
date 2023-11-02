@@ -99,3 +99,39 @@ Print.print_expression(expr_str, expr, 0)
 expr = ~S(Not interpolated #{3 + 0.14})
 expr_str = "~S(Not interpolated #{3 + 0.14})"
 Print.print_expression(expr_str, expr, 20)
+
+expr = ~S(Not escaped \n)
+expr_str = "~S(Not escaped \\n)"
+Print.print_expression(expr_str, expr, 27)
+
+# Finally, there's a special heredocs syntax, which supports
+# better formatting for multiline strings. Heredocs strings
+# start with a triple double-quote. The ending triple double-quote
+# must be on its own line:
+#
+# iex(6)> """
+# ...(6)> Heredoc must end on its own line """
+# ...(6)> """
+# "Heredoc must end on its own line \"\"\"\n"
+
+expr = """
+Heredoc must end on its own line """
+"""
+IO.puts(expr)
+
+# Because strings are binaries, you can concatenate them with
+# the <> operator:
+#
+# iex(7)> "String" <> " " <> "concatenation"
+# "String concatenation"
+
+expr = "String" <> " " <> "concatenation"
+expr_str = ~s("String" <> " " <> "concatenation")
+Print.print_expression(expr_str, expr, 11)
+
+# Many helper functions are available for working with binary
+# strings. Most of them reside in the String module
+# https://hexdocs.pm/elixir/String.html
+#
+# CHARACTER LISTS
+#
