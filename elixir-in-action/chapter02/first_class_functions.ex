@@ -123,3 +123,24 @@ iex(6)> Enum.each([1, 2, 3], &IO.puts/1)
 :ok
 "
 |> IO.puts()
+
+# The capture operator can also be used to shorten the lambda
+# definition, making it possible to omit explicit argument
+# naming. For example, you can turn this definition
+#
+# iex(11)> lambda = fn x, y, z -> x * y + z end
+#
+# Into a more compact form:
+#
+# iex(12)> lambda = &(&1 * &2 + &3)
+#
+# This snippet creates a three-arity lambda. Each argument is
+# referred to via the &n placeholer, which identifies the nth
+# argument of the function. You can call this lambda like
+# any other:
+#
+# iex(13)> lambda.(2, 3, 4)
+# 10
+#
+# The return value 10 amounts to 2 * 3 + 4, as specified in
+# the lambda definition.
