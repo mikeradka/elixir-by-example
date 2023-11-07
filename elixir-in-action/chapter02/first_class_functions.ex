@@ -59,3 +59,27 @@ square = fn x ->
 end
 "
 IO.puts(expr_str)
+
+# Because functions can be stored in a variable, they can be
+# passed as arguments to other functions. This is often used
+# to allow clients to parameterize generic logic.
+# For example, the function Enum.each/2 implements the generic
+# iteration - it can iterate over anything enumerable, such as
+# lists. It takes two arguments: an enumerable and a one-arity
+# lambda (an anonymous function that accepts one argument). It
+# iterates through the enumerable and calls the lambda to
+# specify what they want to do with each element.
+#
+# The following snippet uses Enum.each to print each value of
+# a list to the screen:
+#
+# iex(3)> print_element = fn x -> IO.puts(x) end
+# #Function<42.125776118/1 in :erl_eval.expr/6>
+# iex(4)> Enum.each(
+# ...(4)>  [1, 2, 3],
+# ...(4)>  print_element
+# ...(4)> )
+# 1
+# 2
+# 3
+# :ok
