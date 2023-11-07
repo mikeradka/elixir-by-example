@@ -11,3 +11,20 @@ defmodule Calculator do
     a + b
   end
 end
+
+"
+defmodule Calculator do
+  def sum(a) do # Calculator.sum/1 deletgates to Calculator.sum/2
+    sum(a, 0)
+  end
+
+  def sum(a, b) do  # Calculator.sum/2 contains the implementation
+    a + b
+  end
+end
+"
+|> IO.puts()
+
+"Calculator.sum(2, 5)" |> IO.puts()
+Calculator.sum(2, 5)
+|> IO.puts()
