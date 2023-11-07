@@ -25,6 +25,22 @@ end
 # ...(1)> end
 # #Function<42.125776118/1 in :erl_eval.expr/6>
 #
+# The variable square now contains a function that computes
+# the square of a number. Because the function isn't bound to
+# a global name, it's also called an anonymous function or
+# a lambda.
+#
+# Notice that the list of arguments isn't enclose in parenthesis.
+# You CAN technically use parenthesis here, but the prevalent
+# convention enforced by the Elixir formatter is to omit the
+# parenthesis. This may seem inconsistent, but there is a good
+# reason for this which will be discussed in Chapter 3.
+#
+# You can call this function by specifying the variable name
+# followed by a dot (.) and the arguments:
+#
+# iex(2)> square.(5)
+# 25
 
 square = fn x ->
   x * x
@@ -36,8 +52,3 @@ square = fn x ->
 end
 "
 IO.puts(expr_str)
-
-# The variable square now contains a function that computes
-# the square of a number. Because the function isn't bound to
-# a global name, it's also called an anonymous function or
-# a lambda.
