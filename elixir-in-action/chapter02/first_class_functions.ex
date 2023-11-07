@@ -36,3 +36,8 @@ square = fn x ->
 end
 "
 IO.puts(expr_str)
+
+# The variable square now contains a function that computes
+# the square of a number. Because the function isn't bound to
+# a global name, it's also called an anonymous function or
+# a lambda.
