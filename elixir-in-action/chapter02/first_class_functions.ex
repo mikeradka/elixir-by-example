@@ -1,15 +1,3 @@
-defmodule Print do
-  @moduledoc "Implements basic printing functions"
-
-  import IO
-
-  @doc "Prints the expression input and output with some padding"
-  def print_expression(input, output, padding) do
-    pad = String.pad_leading(" : ", padding)
-    puts(input <> pad <> to_string(output))
-  end
-end
-
 # FIRST-CLASS FUNCTIONS
 # In Elixir, a function is a first-class citizen, which means
 # it can be assigned to a variable. Here, assigning a function
@@ -53,12 +41,12 @@ square = fn x ->
   x * x
 end
 
-expr_str = "
+"
 square = fn x ->
   x * x           : square.(5) = " <> to_string(square.(5)) <> "
 end
 "
-IO.puts(expr_str)
+|> IO.puts()
 
 # Because functions can be stored in a variable, they can be
 # passed as arguments to other functions. This is often used
@@ -83,3 +71,12 @@ IO.puts(expr_str)
 # 2
 # 3
 # :ok
+
+"
+print_element = fn x -> IO.puts(x) end  # Defines the lambda
+Enum.each([1, 2, 3], print_element)     # Passes the lambda to Enum.each
+"
+|> IO.puts()
+
+print_element = fn x -> IO.puts(x) end
+Enum.each([1, 2, 3], print_element)
