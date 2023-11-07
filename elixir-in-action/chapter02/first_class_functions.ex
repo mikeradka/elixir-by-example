@@ -84,10 +84,39 @@ iex(4)> Enum.each([1, 2, 3], print_element)     # Passes the lambda to Enum.each
 |> IO.puts()
 
 "
-Of couse, you don't need a temp variable to pass the lambda
-to Enum.each/2:
+Of couse, you don't need a temp variable to pass the lambda to Enum.each/2:
 
-iex(6)> Enum.each([1, 2, 3], fn x -> IO.puts(x) end)
+iex(5)> Enum.each([1, 2, 3], fn x -> IO.puts(x) end)  # Passes the lambda directly
+1
+2
+3
+:ok
+"
+|> IO.puts()
+
+# Notice how the lambda just forwards all arguments to IO.puts,
+# doing no other meaningful work. For such cases, Elixir makes
+# it possible to directly reference the function and have a
+# more compact lambda definition.
+# Instead of writing fn x -> IO.puts(x) end, you can write
+# &IO.puts/1.
+#
+# The & operator, also known as the capture operator, takes the
+# full function qualifier - a module name, a function name, and
+# an arity - and turns that function into a lambda that can be
+# assigned to a variable. You can use the capture operator to
+# simplify the call to Enum.each/2:
+# iex(8)> Enum.each([1, 2, 3], &IO.puts/1)  # Passes the lambda that deletgates to IO.puts
+# 1
+# 2
+# 3
+# :ok
+
+"
+Instead of writing fn x -> IO.puts(x) end, you can write &IO.puts/1. You can use
+the capture operator (&) to simplify the call to Enum.each/2:
+
+iex(6)> Enum.each([1, 2, 3], &IO.puts/1)
 1
 2
 3
