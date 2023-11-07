@@ -26,5 +26,6 @@ end
 |> IO.puts()
 
 "Calculator.sum(2, 5)" |> IO.puts()
+
 Calculator.sum(2, 5)
 |> IO.puts()
