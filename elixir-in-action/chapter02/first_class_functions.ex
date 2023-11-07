@@ -41,6 +41,13 @@ end
 #
 # iex(2)> square.(5)
 # 25
+#
+# NOTE: the dot operator indicates that an anonymous function
+# is being invoked. In contrast, the expression square(5) is
+# invoking a named function defined somewhere else in the
+# module. Without the dot operator, you'd have to parse the
+# surrounding code to understand whether you're calling a
+# named function or an anonymous function.
 
 square = fn x ->
   x * x
