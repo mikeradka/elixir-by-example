@@ -82,3 +82,15 @@ iex(4)> Enum.each([1, 2, 3], print_element)     # Passes the lambda to Enum.each
 :ok                                             # Return value of Enum.each/2
 "
 |> IO.puts()
+
+"
+Of couse, you don't need a temp variable to pass the lambda
+to Enum.each/2:
+
+iex(6)> Enum.each([1, 2, 3], fn x -> IO.puts(x) end)
+1
+2
+3
+:ok
+"
+|> IO.puts()
