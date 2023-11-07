@@ -144,3 +144,20 @@ iex(6)> Enum.each([1, 2, 3], &IO.puts/1)
 #
 # The return value 10 amounts to 2 * 3 + 4, as specified in
 # the lambda definition.
+
+"
+The capture operator can also be used to shorten the lambda definition.
+For example, you can turn this definition:
+
+iex(7)> lambda = fn x, y, z -> x * y + z end
+
+Into a more compact form:
+
+iex(8)> lambda = &(&1 * &2 + &3)
+
+This creates a three-arity lambda, which can be called like any other:
+
+iex(9)> lambda.(2, 3, 4)
+10
+"
+|> IO.puts()
