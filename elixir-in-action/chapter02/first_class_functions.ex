@@ -161,3 +161,19 @@ iex(9)> lambda.(2, 3, 4)
 10
 "
 |> IO.puts()
+
+"
+CLOSURES
+A lambda can reference any variable from the outside scope:
+
+iex(1)> outside_var = 5
+5
+iex(2)> my_lambda = fn ->
+...(2)>   IO.puts(outside_var)
+...(2)> end
+#Function<43.125776118/0 in :erl_eval.expr/6>
+iex(3)> my_lambda.()
+5
+:ok
+"
+|> IO.puts()
