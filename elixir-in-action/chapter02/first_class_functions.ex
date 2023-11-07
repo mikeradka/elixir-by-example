@@ -25,3 +25,14 @@ end
 # ...(1)> end
 # #Function<42.125776118/1 in :erl_eval.expr/6>
 #
+
+square = fn x ->
+  x * x
+end
+
+expr_str = "
+square = fn x ->
+  x * x           : square.(5) = " <> to_string(square.(5)) <> "
+end
+"
+IO.puts(expr_str)
