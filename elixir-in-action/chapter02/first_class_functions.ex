@@ -73,10 +73,12 @@ end
 # :ok
 
 "
-print_element = fn x -> IO.puts(x) end  # Defines the lambda
-Enum.each([1, 2, 3], print_element)     # Passes the lambda to Enum.each
+iex(3)> print_element = fn x -> IO.puts(x) end  # Defines the lambda
+#Function<42.125776118/1 in :erl_eval.expr/6>
+iex(4)> Enum.each([1, 2, 3], print_element)     # Passes the lambda to Enum.each/2
+1                                               # Output printed by the lambda
+2                                               # Output printed by the lambda
+3                                               # Output printed by the lambda
+:ok                                             # Return value of Enum.each/2
 "
 |> IO.puts()
-
-print_element = fn x -> IO.puts(x) end
-Enum.each([1, 2, 3], print_element)
