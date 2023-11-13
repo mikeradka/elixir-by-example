@@ -177,3 +177,12 @@ iex(3)> my_lambda.()
 :ok
 "
 |> IO.puts()
+
+# As long as you hold the reference to my_lambda, the variable outside_var is
+# also accessible. This is also known as closure: by holding a reference to a
+# lambda, you indirectly hold a reference to all variables it uses, event if
+# those variables are from the external scope.
+#
+# A closure always captures a specific memory location. Rebinding a variable
+# doesn't affect the previously defined lambda that references the same
+# symbolic name:
