@@ -1,6 +1,7 @@
 # TODO
+- [ ] 2.4.12 IO Lists
 - [ ] 2.4.11 Higher-level types
-- [ ] 2.4.10 Other built-in types (`other_built-in_types.ex`)
+- [x] 2.4.10 Other built-in types (`other_built-in_types.ex`)
 - [x] 2.4.9 First-class functions (`first_class_functions.ex`)
 - [x] 2.4.8 Strings (`strings.ex`)
 - [x] 2.4.7 Binaries and bitstrings (`binaries_and_bitstrings.ex`)
