@@ -44,3 +44,42 @@ contains range boundaries. So, the memory footprint of a range
 is very small. A million-number range is just a small map.
 "
 |> IO.puts()
+
+"
+---
+KEYWORD LISTS
+
+A keyword list is a special case of a list where each element
+is a two-element tuple. The first element is an atom. The 2nd
+element can be of any type. For example:
+
+  iex(1)> days = [{:monday, 1}, {:tuesday, 2}, {:wednesday, 3}]
+  [monday: 1, tuesday: 2, wednesday: 3]
+
+There is a slightly more elegant syntax to define a keyword list:
+
+  iex(2)> days = [monday: 1, tuesday: 2, wednesday: 3]
+  [monday: 1, tuesday: 2, wednesday: 3]
+
+Either way, a keyword list is a list of pairs.
+
+Keyword lists are often used for small-size key/value structures,
+where keys are atoms. Many useful functions are available in the
+Keyword module (https://hexdocs.pm/elixir/Keyword.html).
+
+For example, you can use Keyword.get/2 to fetch the value for a key:
+
+  iex(3)> Keyword.get(days, :monday)
+  1
+  iex(4)> Keyword.get(days, :noday)
+  nil
+
+Just like with maps, you can use the [] operator to fetch a value:
+
+  iex(5)> days[:tuesday]
+  2
+
+Keep in mind that because you're dealing with a list, the complexity
+of a lookup operation is O(n) which is expensive.
+"
+|> IO.puts()
