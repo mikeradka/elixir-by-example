@@ -180,5 +180,16 @@ Once the date is created, you can retrieve its individual fields:
   1
   iex(5)> date.day
   31
+
+You can represent a time with the ~T sigil:
+
+  iex(2)> time.hour
+  11
+  iex(3)> time.minute
+  59
+  iex(4)> time.microsecond
+  {70, 5}
+  iex(5)> time.second
+  12
 "
 |> IO.puts()
