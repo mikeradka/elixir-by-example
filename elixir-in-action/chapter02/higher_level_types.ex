@@ -131,4 +131,34 @@ MAPSET
 
 A MapSet is the implementation of a set - a store of unique
 values, where a value can be of any type.
+
+  iex(1)> days = MapSet.new([:monday, :tuesday, :wednesday]) # Creates a MapSet instance
+  MapSet.new([:monday, :tuesday, :wednesday])
+  iex(2)> MapSet.member?(days, :monday)                      # Verifies element's presence
+  true
+  iex(3)> MapSet.member?(days, :noday)                       # Verifies non-existing element
+  false
+  iex(4)> days = MapSet.put(days, :thursday)                 # Puts a new element to the MapSet
+  MapSet.new([:monday, :thursday, :tuesday, :wednesday])
+
+As shown, you can manipulate the set using the function from
+the MapSet module (https://hexdocs.pm/elixir/MapSet.html).
+
+A MapSet is also enumerable, so you can pass functions from
+the Enum module:
+
+  iex(5)> Enum.each(days, &IO.puts/1)
+  monday
+  thursday
+  tuesday
+  wednesday
+
+As shown above, MapSet doesn't preserve the ordering of the items.
 "
+|> IO.puts()
+
+"
+---
+TIMES AND DATES
+"
+|> IO.puts()
