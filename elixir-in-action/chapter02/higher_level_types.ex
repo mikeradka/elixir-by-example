@@ -124,3 +124,11 @@ their options as keyword lists. It's best to stick to the existing
 convention and accept optional parameneters via keyword lists.
 "
 |> IO.puts()
+
+"
+---
+MAPSET
+
+A MapSet is the implementation of a set - a store of unique
+values, where a value can be of any type.
+"
