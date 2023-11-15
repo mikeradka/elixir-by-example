@@ -198,3 +198,13 @@ symbolic name:
   :ok
 "
 |> IO.puts()
+
+"
+The preceding code illustrates another important point. Normally,
+after you have rebound outside_var to the value 6, the original
+memory location would be eligible for garbage collection. But
+because the lambda function captures the original location (the
+one that holds the number 5, and you're still referencing that
+lambda, the original location isn't available for garbage collection.
+"
+|> IO.puts()
