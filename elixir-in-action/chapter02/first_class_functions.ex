@@ -169,7 +169,7 @@ A lambda can reference any variable from the outside scope:
   iex(1)> outside_var = 5
   5
   iex(2)> my_lambda = fn ->
-  ...(2)>   IO.puts(outside_var)
+  ...(2)>   IO.puts(outside_var)    # Lambda references a variable from the outside scope
   ...(2)> end
   #Function<43.125776118/0 in :erl_eval.expr/6>
   iex(3)> my_lambda.()
@@ -189,11 +189,11 @@ symbolic name:
 
   iex(1)> outside_var = 5
   5
-  iex(2)> lambda = fn -> IO.puts(outside_var) end
+  iex(2)> lambda = fn -> IO.puts(outside_var) end   # lambda captures the current location of outside_var
   #Function<43.125776118/0 in :erl_eval.expr/6>
-  iex(3)> outside_var = 6
+  iex(3)> outside_var = 6                           # Rebinding doesn't affect the closure
   6
-  iex(4)> lambda.()
+  iex(4)> lambda.()                                 # Proof that the closure isn't affected
   5
   :ok
 "
