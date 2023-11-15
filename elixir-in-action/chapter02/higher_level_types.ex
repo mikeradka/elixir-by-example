@@ -100,5 +100,17 @@ the square brackets if the last argument is a keyword list:
   iex(1)> IO.inspect([100, 200, 300], width: 3, limit: 1)
   [100,
    ...]
+
+In this example you're still sending two arguments to IO.inspect/2:
+a number and a two-element keyword list. But this demonstrates how
+to simulate optional arguments. You can accept a keyword list as
+the last argument of your function, and make that argument default
+to an empty list:
+
+  def my_fun(arg1, arg2, opts \\ []) do
+    ...
+  end
+
+Your clients can then pass options via the last argument.
 "
 |> IO.puts()
