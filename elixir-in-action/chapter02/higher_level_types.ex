@@ -81,5 +81,24 @@ Just like with maps, you can use the [] operator to fetch a value:
 
 Keep in mind that because you're dealing with a list, the complexity
 of a lookup operation is O(n) which is expensive.
+
+Keyword lists are most often useful for allowing clients to pass an
+arbitrary number of optional arguments. For example, the result of
+the function IO.inspect can be controlled by providing additional
+options through a keyword list:
+
+  iex(1)> IO.inspect([100, 200, 300])             # Default behavior
+  [100, 200, 300]
+  iex(2)> IO.inspect([100, 200, 300], [width: 3]) # Passes additional options
+  [100,
+   200,
+   300]
+
+In fact, this pattern is so frequent that Elixir allows you to omit
+the square brackets if the last argument is a keyword list:
+
+  iex(1)> IO.inspect([100, 200, 300], width: 3, limit: 1)
+  [100,
+   ...]
 "
 |> IO.puts()
