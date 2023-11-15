@@ -73,24 +73,24 @@ end
 # :ok
 
 "
-iex(3)> print_element = fn x -> IO.puts(x) end  # Defines the lambda
-#Function<42.125776118/1 in :erl_eval.expr/6>
-iex(4)> Enum.each([1, 2, 3], print_element)     # Passes the lambda to Enum.each/2
-1                                               # Output printed by the lambda
-2                                               # Output printed by the lambda
-3                                               # Output printed by the lambda
-:ok                                             # Return value of Enum.each/2
+  iex(3)> print_element = fn x -> IO.puts(x) end  # Defines the lambda
+  #Function<42.125776118/1 in :erl_eval.expr/6>
+  iex(4)> Enum.each([1, 2, 3], print_element)     # Passes the lambda to Enum.each/2
+  1                                               # Output printed by the lambda
+  2                                               # Output printed by the lambda
+  3                                               # Output printed by the lambda
+  :ok                                             # Return value of Enum.each/2
 "
 |> IO.puts()
 
 "
 Of couse, you don't need a temp variable to pass the lambda to Enum.each/2:
 
-iex(5)> Enum.each([1, 2, 3], fn x -> IO.puts(x) end)  # Passes the lambda directly
-1
-2
-3
-:ok
+  iex(5)> Enum.each([1, 2, 3], fn x -> IO.puts(x) end)  # Passes the lambda directly
+  1
+  2
+  3
+  :ok
 "
 |> IO.puts()
 
@@ -116,11 +116,11 @@ iex(5)> Enum.each([1, 2, 3], fn x -> IO.puts(x) end)  # Passes the lambda direct
 Instead of writing fn x -> IO.puts(x) end, you can write &IO.puts/1. You can use
 the capture operator (&) to simplify the call to Enum.each/2:
 
-iex(6)> Enum.each([1, 2, 3], &IO.puts/1)
-1
-2
-3
-:ok
+  iex(6)> Enum.each([1, 2, 3], &IO.puts/1)
+  1
+  2
+  3
+  :ok
 "
 |> IO.puts()
 
@@ -149,16 +149,16 @@ iex(6)> Enum.each([1, 2, 3], &IO.puts/1)
 The capture operator can also be used to shorten the lambda definition.
 For example, you can turn this definition:
 
-iex(7)> lambda = fn x, y, z -> x * y + z end
+  iex(7)> lambda = fn x, y, z -> x * y + z end
 
 Into a more compact form:
 
-iex(8)> lambda = &(&1 * &2 + &3)
+  iex(8)> lambda = &(&1 * &2 + &3)
 
 This creates a three-arity lambda, which can be called like any other:
 
-iex(9)> lambda.(2, 3, 4)
-10
+  iex(9)> lambda.(2, 3, 4)
+  10
 "
 |> IO.puts()
 
@@ -166,23 +166,35 @@ iex(9)> lambda.(2, 3, 4)
 CLOSURES
 A lambda can reference any variable from the outside scope:
 
-iex(1)> outside_var = 5
-5
-iex(2)> my_lambda = fn ->
-...(2)>   IO.puts(outside_var)
-...(2)> end
-#Function<43.125776118/0 in :erl_eval.expr/6>
-iex(3)> my_lambda.()
-5
-:ok
+  iex(1)> outside_var = 5
+  5
+  iex(2)> my_lambda = fn ->
+  ...(2)>   IO.puts(outside_var)
+  ...(2)> end
+  #Function<43.125776118/0 in :erl_eval.expr/6>
+  iex(3)> my_lambda.()
+  5
+  :ok
 "
 |> IO.puts()
 
-# As long as you hold the reference to my_lambda, the variable outside_var is
-# also accessible. This is also known as closure: by holding a reference to a
-# lambda, you indirectly hold a reference to all variables it uses, event if
-# those variables are from the external scope.
-#
-# A closure always captures a specific memory location. Rebinding a variable
-# doesn't affect the previously defined lambda that references the same
-# symbolic name:
+"
+As long as you hold the reference to my_lambda, the variable outside_var is
+also accessible. This is also known as closure: by holding a reference to a
+lambda, you indirectly hold a reference to all variables it uses, event if
+those variables are from the external scope.
+A closure always captures a specific memory location. Rebinding a variable
+doesn't affect the previously defined lambda that references the same
+symbolic name:
+
+  iex(1)> outside_var = 5
+  5
+  iex(2)> lambda = fn -> IO.puts(outside_var) end
+  #Function<43.125776118/0 in :erl_eval.expr/6>
+  iex(3)> outside_var = 6
+  6
+  iex(4)> lambda.()
+  5
+  :ok
+"
+|> IO.puts()
