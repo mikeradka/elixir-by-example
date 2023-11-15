@@ -160,5 +160,25 @@ As shown above, MapSet doesn't preserve the ordering of the items.
 "
 ---
 TIMES AND DATES
+
+Elixir has a few modules for date and time types:
+  - Date
+  - Time
+  - DateTime
+  - NaiveDateTime
+
+A date can be created with the ~D sigil:
+
+  iex(1)> date = ~D[2018-01-31]
+  ~D[2018-01-31]
+
+Once the date is created, you can retrieve its individual fields:
+
+  iex(3)> date.year
+  2018
+  iex(4)> date.month
+  1
+  iex(5)> date.day
+  31
 "
 |> IO.puts()
