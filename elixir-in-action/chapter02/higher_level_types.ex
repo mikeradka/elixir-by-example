@@ -111,6 +111,16 @@ to an empty list:
     ...
   end
 
-Your clients can then pass options via the last argument.
+Your clients can then pass options via the last argument. It is
+up to you to check the contents in the opts argument and perform
+some conditional logic depending on what the caller sent you.
+
+You may wonder if it's better to use maps instead of keywords for
+optional arguments. A keyword list can contain multiple values
+for the same key. You can also control the ordering of keyword
+list elements, which is not possible with maps. Finally, many
+functions in the standard libraries of Elixir and Erlang take
+their options as keyword lists. It's best to stick to the existing
+convention and accept optional parameneters via keyword lists.
 "
 |> IO.puts()
