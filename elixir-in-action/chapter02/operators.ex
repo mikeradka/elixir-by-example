@@ -22,5 +22,15 @@ integers to floats:
   true
   iex(2)> 1 === 1.0   # Strict equality
   false
+
+LOGICAL OPERATORS
+
+Logical operators work on Boolean atoms: 'and', 'or', and 'not'.
+
+SHORT-CIRCUIT OPERATORS
+
+Unlike logical operators, short-circuit operators work with the concept of
+'truthness': the atoms 'false' and 'nil' are treated as 'falsy', and
+everything else is treated as 'truthy'.
   "
 |> IO.puts()
