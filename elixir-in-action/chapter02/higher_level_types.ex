@@ -211,6 +211,10 @@ iex(3)> naive_datetime.hour
 iex(4)> naive_datetime.minute
 59
 
+We call them naive because this datetime representation does not have a time zone.
+This means the datetime may not actually exist in certain areas in the world even
+though it is valid.
+
 The DateTime module can be used to work with datetimes in some timezone.
 Unlike with other types, no sigil is available. Instead, you can create
 a datetime by using DateTime functions:
