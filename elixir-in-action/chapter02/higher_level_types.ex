@@ -228,6 +228,8 @@ iex(7)> datetime.hour
 iex(8)> datetime.time_zone
 \"Etc/UTC\"
 
+DateTime is a datetime implementation with a time zone.
+
 For more details on NaiveDateTime and DateTime, you can reference the
 hexdocs documentation: https://hexdocs.pm/elixir/NaiveDateTime.html and
 https://hexdocs.pm/elixir/DateTime.html
