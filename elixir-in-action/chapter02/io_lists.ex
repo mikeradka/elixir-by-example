@@ -1,4 +1,6 @@
 "
+IO LISTS
+
 An IO list is a special sort of list that's useful for incrementally
 building output that will be forwarded to an I/O device, such as a
 network or a file. Each element of an IO list must be one of the following:
