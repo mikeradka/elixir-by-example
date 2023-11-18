@@ -28,5 +28,21 @@ Hello, world!
 Under the hood, the structure is flattened, and you can see the human-
 readable output. You'll get the same effect if you send an IO list to
 a file or a network socket.
+
+IO lists are useful when you need to incrementally build a stream of
+bytes. Lists usually aren't good in this case, because appending to
+a list is an O(n) operation. In contrast, appending to an IO list is
+O(1), because you can use nesting. Here is a demonstration:
+
+iex(3)> iolist = []                            # Initializes an IO list
+[]
+iex(4)> iolist = [iolist, \"This\"]              # append to the IO list
+[[], \"This\"]
+iex(5)> iolist = [iolist, \" is\"]               # another append to the IO list
+[[[], \"This\"], \" is\"]
+iex(6)> iolist = [iolist, \" an\"]
+[[[[], \"This\"], \" is\"], \" an\"]
+iex(7)> iolist = [iolist, \" IO list.\"]
+[[[[[], \"This\"], \" is\"], \" an\"], \" IO list.\"]  # Final IO list
 "
 |> IO.puts()
