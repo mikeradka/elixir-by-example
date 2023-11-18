@@ -1,5 +1,6 @@
 # TODO
-- [ ] 2.5 Operators (`operators.ex`)
+- [ ] 2.6 Macros (`macros.ex`)
+- [x] 2.5 Operators (`operators.ex`)
 - [x] 2.4.12 IO Lists (`io_lists.ex`)
 - [x] 2.4.11 Higher-level types (`higher_level_types.ex`)
 - [x] 2.4.10 Other built-in types (`other_built-in_types.ex`)

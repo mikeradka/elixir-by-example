@@ -32,5 +32,14 @@ SHORT-CIRCUIT OPERATORS
 Unlike logical operators, short-circuit operators work with the concept of
 'truthness': the atoms 'false' and 'nil' are treated as 'falsy', and
 everything else is treated as 'truthy'.
+
+&& returns the second expression only if the first isn't falsy.
+|| returns the first expression if it's truthy; otherwise, it returns the second expression.
+! (the unary operator) returns false if the value is truthy. Otherwise it returns true.
+
+There are other operators, too, like the pipeline operator |>
+
+Most operators are functions. For example, 'a+b' is also 'Kernel.+(a,b)'.
+This is mainly only useful for lambdas.
   "
 |> IO.puts()
