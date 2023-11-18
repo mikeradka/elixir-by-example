@@ -191,5 +191,41 @@ You can represent a time with the ~T sigil:
   {70, 5}
   iex(5)> time.second
   12
+
+There are also some useful functions available in the modules Date
+(https://hexdocs.pm/elixir/Date.html) and Time (https://hexdocs.pm/elixir/Time.html)
+"
+|> IO.puts()
+
+"
+In addition to these two types, you can also work with datetimes
+using the NaiveDateTime and DateTime modules. The naive version
+can be created with the ~N sigil:
+
+iex(1)> naive_datetime = ~N[2018-01-31 11:59:12.000007]
+~N[2018-01-31 11:59:12.000007]
+iex(2)> naive_datetime.year
+2018
+iex(3)> naive_datetime.hour
+11
+iex(4)> naive_datetime.minute
+59
+
+The DateTime module can be used to work with datetimes in some timezone.
+Unlike with other types, no sigil is available. Instead, you can create
+a datetime by using DateTime functions:
+
+iex(5)> datetime = DateTime.from_naive!(naive_datetime, \"Etc/UTC\")
+~U[2018-01-31 11:59:12.000007Z]
+iex(6)> datetime.year
+2018
+iex(7)> datetime.hour
+11
+iex(8)> datetime.time_zone
+\"Etc/UTC\"
+
+For more details on NaiveDateTime and DateTime, you can reference the
+hexdocs documentation: https://hexdocs.pm/elixir/NaiveDateTime.html and
+https://hexdocs.pm/elixir/DateTime.html
 "
 |> IO.puts()
