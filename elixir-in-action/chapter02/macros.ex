@@ -13,5 +13,20 @@ A macro consists of Elixir code that can change the semantics of the input
 code. Macros are always called at compile time. They receive the parsed
 representation of the Elixir code, and can return an alternative version
 of that code.
+
+  unless some_expression do
+    block_1
+  else
+    block_2
+  end
+
+'unless' is not a special keyword. It is a macro (an Elixir function) that
+transforms the input code into something like this:
+
+  if some_expression do
+    block_2
+  else
+    block_1
+  end
 "
 |> IO.puts()
