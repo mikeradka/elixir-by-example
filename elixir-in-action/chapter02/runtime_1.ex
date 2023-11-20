@@ -33,6 +33,14 @@ the input source file. If multiple modules are defined in a single source
 file, the compiler will produce multiple .beam files that correspond to
 those modules (try running elixirc on some_modules.ex)
 
-In the runtime, module names are aliases - and aliases are atoms.
+In the runtime, module names are aliases - and aliases are atoms. The first
+time you call the function of a module, BEAM tries to find the corresponding
+file on disk. The VM looks for the file in the current folder, and then in
+the code paths.
+
+When you start BEAM with Elixir tools, such as iex, some code paths are
+predefined for you. You can add other code paths by using the -pa switch:
+
+  $ iex -pa my/code/path -pa another/code/path
 "
 |>IO.puts()
