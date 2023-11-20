@@ -28,5 +28,19 @@ transforms the input code into something like this:
   else
     block_1
   end
+
+This type of transformation is not possible with C-style macros, because the
+code of the expression can be arbitrarily complex and nested in multiple
+parenthesis. But in Elixir macros (inspired by Lisp), you already work on a
+parsed source representation. So you'll have access to the expression and
+both blocks in separate variables.
+
+Many parts of Elixir are written with macros, uncluding the 'unless' and 'if'
+constructs. Also 'defmodule' and def' are written using macros. Other
+languages typically use keywords for these features. In Elixir, these features
+are built on top of a much smaller language core.
+
+Main takeaway: macros are compile-code transformers. Macros run at compile
+time to produce alternative code.
 "
 |> IO.puts()
