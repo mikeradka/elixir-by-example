@@ -42,5 +42,33 @@ When you start BEAM with Elixir tools, such as iex, some code paths are
 predefined for you. You can add other code paths by using the -pa switch:
 
   $ iex -pa my/code/path -pa another/code/path
+
+You can check which code paths are used at runtime by calling the Erlang
+function :code.get_path
+
+  iex(1)> :code.get_path
+  [~c\"/usr/local/Cellar/elixir/1.15.7/bin/../lib/elixir/ebin\",
+   ~c\"/usr/local/Cellar/elixir/1.15.7/bin/../lib/mix/ebin\",
+   ~c\"/usr/local/Cellar/elixir/1.15.7/bin/../lib/logger/ebin\",
+  ...
+
+If the module is already loaded, the runtime does not search for it on the
+disk. This can be used when starting the shell, to auto-load modules:
+
+  $ iex my_source.ex
+
+This command compiles the source file and immediately loads all generated
+modules. In this case, .beam files are not saved to disk. The iex tool
+performs an in-memory compilation.
+
+You can of course also define modules in the shell:
+
+  iex(1)> defmodule MyModule do     # In-memory bytecode generation and loading of a module
+    ...(1)>   def my_fun, do: :ok   # In-memory bytecode generation and loading of a module
+    ...(1)> end
+    iex(2)> MyModule.my_fun
+    :ok
+
+In this case, the bytecode also is not saved to the disk since it is loaded in memory.
 "
 |>IO.puts()
