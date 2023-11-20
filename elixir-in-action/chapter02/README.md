@@ -1,6 +1,6 @@
 # TODO
 - [ ] 2.7.2 Starting the runtime (`runtime_2.ex`)
-- [ ] 2.7.1 Modules and functions in the runtime (`runtime_1.ex`)
+- [ ] 2.7.1 Modules and functions in the runtime (`runtime_1.ex`, `some_modules.ex`)
 - [x] 2.6 Macros (`macros.ex`)
 - [x] 2.5 Operators (`operators.ex`)
 - [x] 2.4.12 IO Lists (`io_lists.ex`)
