@@ -71,5 +71,30 @@ You can of course also define modules in the shell:
 
 In this case, the bytecode also is not saved to the disk since it is loaded
 in memory.
+
+PURE ERLANG MODULES
+
+Remember, to call a pure, non-Elixir Erlang module, you do so like this:
+
+  :code.get_path    # Calls the get_path function of the pure Erlang :code module
+
+In Erlang, modules also correspond to atoms. Somewhere on the disk is a file
+named 'code.beam' that contains the compiled code for the ':code' module.
+Erlang uses simple filenames, which is the reason for this call syntax. But
+the rules are the same as with Elixir modules. Elixir modules are nothing
+more than Erlang modules with fancier names, such as 'Elixir.MyModule'.
+
+You can create modules with simple names in Elixir, although this is not recommended:
+
+  defmodule :my_module do
+    ...
+  end
+
+Compiling the source file that contains such a definition will generate
+'my_module.beam' on the disk.
+
+The important thing to remember is that at runtime, module names are atoms.
+And somewhere on the disk is an 'xyz.beam' file, where 'xyz' is the expanded
+form of an alias, such as 'Elixir.MyModule when the modules is named MyModule.
 "
 |>IO.puts()
