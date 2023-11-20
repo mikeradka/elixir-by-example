@@ -31,6 +31,8 @@ When you compile the source containing the 'Geometry' module, the file
 generated on the disk is named 'Geometry.beam', regardless of the name of
 the input source file. If multiple modules are defined in a single source
 file, the compiler will produce multiple .beam files that correspond to
-those modules.
+those modules (try running elixirc on some_modules.ex)
+
+In the runtime, module names are aliases - and aliases are atoms.
 "
 |>IO.puts()
