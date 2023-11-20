@@ -69,6 +69,7 @@ You can of course also define modules in the shell:
     iex(2)> MyModule.my_fun
     :ok
 
-In this case, the bytecode also is not saved to the disk since it is loaded in memory.
+In this case, the bytecode also is not saved to the disk since it is loaded
+in memory.
 "
 |>IO.puts()
