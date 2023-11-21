@@ -51,5 +51,18 @@ You can run this script from the command line:
 This first call does the in-memory compilation of the 'MyModule' module, and
 then calls 'MyModule.run'. After the call to 'MyModule.run' finishes, the
 BEAM instance is stopped.
+
+If you don't want the BEAM instance to terminate, you can provide the
+'--no-halt' parameter:
+
+  $ elixir --no-halt simple_script.exs
+  Called MyModule.run
+  (BEAM stays open...)
+
+'--no-halt' is most often useful if your main code (outside a module) starts
+concurrent tasks that perform all the work. In this situation, your main call
+finishes as soon as the concurrent tasks are started, and BEAM is immediately
+terminated, and no work is done. Providing the '--no-halt' option keeps the
+entire system alive and running.
 "
 |> IO.puts()
