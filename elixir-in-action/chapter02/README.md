@@ -1,3 +1,4 @@
+# Chapter 2: Building Blocks
 # TODO
 - [x] Summary
 - [x] 2.7.2 Starting the runtime (`runtime_2.ex`)
