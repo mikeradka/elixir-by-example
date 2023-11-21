@@ -74,5 +74,17 @@ THE MIX TOOL
 The mix tool is used to manage projects that are made up of multiple source
 files. Mix is your best option when you need to build a production-ready
 system.
+
+To create a new mix project, you can call 'mix new project_name' from the
+command line:
+
+  $ mix new my_project
+
+This creates a new folder named my_project containing a couple of subfolders
+and files. You can change to the my_project folder and compile the entire
+project.
+
+  $ cd my_project
+  $ mix compile
 "
 |> IO.puts()
