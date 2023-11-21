@@ -34,5 +34,17 @@ individual attributes of the person:
 
   iex(2)> {:person, name, age} = person
   {:person, \"Bob\", 25}
+
+Here, you expect the right-side term to be a three-element tuple, with its
+first element having a value of ':person'. After the match, the remaining
+elements of the tuple are bound to the variables 'name' and 'age' which you
+can easily verify:
+
+  iex(3)> name
+  \"Bob\"
+  iex(4)> age
+  25
+
+This is a common idiom in Elixir.
 "
 |> IO.puts()
