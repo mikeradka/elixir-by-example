@@ -46,5 +46,15 @@ can easily verify:
   25
 
 This is a common idiom in Elixir.
+
+Many functions from Elixir and Erlang return either '{:ok, result}' or
+'{:error, reason}'. For example, imagine that your system relies on a
+configuration file and expects it to always be available. You can read the
+file contents with the help of the 'File.read/1' function.
+
+  iex(2)> {:ok, contents} = File.read(\"my_app.config\")
+   {:ok, \"This is just a test config file to illustrate File.read/1.\"}
+  iex(3)> contents
+   \"This is just a test config file to illustrate File.read/1.\"
 "
 |> IO.puts()
