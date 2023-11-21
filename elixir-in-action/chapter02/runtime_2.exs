@@ -21,6 +21,35 @@ performance hit.
 
 RUNNING SCRIPTS
 
-The 'elixir' command can be used to run a single Elixir source file.
+The 'elixir' command can be used to run a single Elixir source file. Here
+is the basic syntax:
+
+  $ elixir my_source.ex
+
+When you start this, the following actions take place:
+  - The BEAM instance is started.
+  - The file my_source.ex is compiled in memory.
+  - The resulting modules are loaded to the VM.
+  - No .beam file is generated on the disk.
+  - Whatever code resides outside of a module is interpreted.
+  - Once everything is finished, BEAM is stopped.
+
+Check out 'simple_script.exs' for an example:
+
+  defmodule MyModule do
+    def run do
+      IO.puts(\"Called MyModule.run\")
+    end
+  end
+
+  MyModule.run    # Code outside of a module is executed immediately
+
+You can run this script from the command line:
+
+  $ elixir simple_script.exs
+
+This first call does the in-memory compilation of the 'MyModule' module, and
+then calls 'MyModule.run'. After the call to 'MyModule.run' finishes, the
+BEAM instance is stopped.
 "
 |> IO.puts()
