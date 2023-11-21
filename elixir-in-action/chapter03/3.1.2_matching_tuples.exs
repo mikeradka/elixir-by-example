@@ -21,13 +21,34 @@ For example, the Erlange function ':calendar.local_time/0' returns a tuple
 of the current date and time:
 
   iex(1)> {date, time} = :calendar.local_time()
-  {{2023, 11, 20}, {21, 3, 56}}
+  {{2023, 11, 20}, {21, 7, 44}}
 
 You now have separate variables for the date and time:
 
   iex(2)> date
   {2023, 11, 20}
   iex(3)> time
-  {21, 3, 56}
+  {21, 7, 44}
+
+Since date and time are also tuples, you can further decompose them into
+variables:
+
+  iex(4)> {year, month, day} = date
+  {2023, 11, 20}
+  iex(5)> year
+  2023
+  iex(6)> month
+  11
+  iex(7)> day
+  20
+
+  iex(8)> {hour, minute, second} = time
+  {21, 7, 44}
+  iex(9)> hour
+  21
+  iex(10)> minute
+  7
+  iex(11)> second
+  44
 "
 |> IO.puts()
