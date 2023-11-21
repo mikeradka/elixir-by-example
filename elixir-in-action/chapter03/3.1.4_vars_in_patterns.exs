@@ -46,5 +46,25 @@ day:
   {{2023, 11, 21}, {17, 16, 54}}
   iex(3)> hour
   17
-  "
+
+A variable can be referenced multiple times in the same pattern.
+In the following expressions, you expect an RGB triplet with the
+same number for each component:
+
+  iex(4)> {amount, amount, amount} = {127, 127, 127}  # Matches a tuple with 3 identical elements
+  {127, 127, 127}
+
+  iex(5)> {amount, amount, amount} = {127, 127, 1}    # Fails because the tuple elements aren't identical
+  ** (MatchError) no match of right hand side value: {127, 127, 1}
+
+Occasionally, you will need to match against the contents of the variable. For
+this purpose, the 'pin operator', '^' is provided.
+
+  iex(1)> expected_name = \"Bob\" # matches anything and binds to the variable 'expected_name'
+  \"Bob\"
+  iex(2)> {^expected_name, _} = {\"Bob\", 25}  # matches to the content of the variable 'expected_name'
+  {\"Bob\", 25}
+  iex(3)> {^expected_name, _} = {\"Alice\", 25}
+  ** (MatchError) no match of right hand side value: {\"Alice\", 25}
+"
 |> IO.puts()
