@@ -66,5 +66,16 @@ this purpose, the 'pin operator', '^' is provided.
   {\"Bob\", 25}
   iex(3)> {^expected_name, _} = {\"Alice\", 25}
   ** (MatchError) no match of right hand side value: {\"Alice\", 25}
+
+Using '^expected_name' in patterns says that you expect the value of the
+variable 'expected_name' to be in the appropriate position in the right-side
+term. In this example, it would be the same as if you used the hard-coded
+pattern {\"Bob\", _}. Therefore, the first match succeeds, but the second one
+fails.
+
+Note that the pin operator doesn't bind to the variable - you expect that the
+variable is already bound - ie that it has a value, and you try to match against
+that value. This technique is used less often and is mostly relevant when you
+need to construct the pattern at runtime.
 "
 |> IO.puts()
