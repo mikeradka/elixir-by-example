@@ -35,5 +35,16 @@ the program, but the compiler would throw a warning:
 
   iex(11)> _date
   warning: the underscored variable \"_date\" is used after being set. A leading underscore indicates that the value of the variable should be ignored.
-"
+
+Along with anonymous variables, patterns can be arbitrarily nested. So taking
+this example further, if you only want to retrieve the current hour of the
+day:
+
+  iex(1)> :calendar.local_time()
+  {{2023, 11, 21}, {17, 16, 31}}
+  iex(2)> {_, {hour, _, _}} = :calendar.local_time()
+  {{2023, 11, 21}, {17, 16, 54}}
+  iex(3)> hour
+  17
+  "
 |> IO.puts()
