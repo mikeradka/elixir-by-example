@@ -18,5 +18,9 @@ not try to measure performance directly from iex.
 Modules, on the other hand, are ALWAYS compiled. Even if you define a module
 in the shell, it will be compiled and loaded in memory, so there is no
 performance hit.
+
+RUNNING SCRIPTS
+
+The 'elixir' command can be used to run a single Elixir source file.
 "
 |> IO.puts()
