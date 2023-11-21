@@ -19,5 +19,21 @@ For this, you can use the 'anonymous variable', '_':
   {{2023, 11, 21}, {17, 3, 0}}
   iex(7)> time
   {17, 3, 0}
+
+With matching, the anonymous variable works just like a named variable. It
+matches any right-side term. But the value of the term is not bound to any
+variable.
+
+You can also add a descriptive name after the underscore character for an
+anonymous variable:
+
+  iex(9)> {_date, time} = :calendar.local_time()
+
+The '_date' is regarded as an anonymous variable because its name begins with
+an underscore. You could technicallyt still use that variable in the rest of
+the program, but the compiler would throw a warning:
+
+  iex(11)> _date
+  warning: the underscored variable \"_date\" is used after being set. A leading underscore indicates that the value of the variable should be ignored.
 "
 |> IO.puts()
