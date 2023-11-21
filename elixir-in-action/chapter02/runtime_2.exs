@@ -86,5 +86,29 @@ project.
 
   $ cd my_project
   $ mix compile
+  Compiling 1 file (.ex)
+  Generated my_project app
+
+The compilation goes through all the files from the lib folder and places
+the resulting '.beam' files in the 'ebin' folder.
+
+You can execute various mix commands on the project. For example, the
+generator created the module MyProject with the single function hello/0.
+You can invoke it with mix run:
+
+  mix run -e \"IO.puts(MyProject.hello())\"
+  world
+
+The generator also created a couple of tests, which can be executed with
+mix test:
+
+  $ mix test
+  ..
+  Finished in 0.01 seconds (0.00s async, 0.01s sync)
+  1 doctest, 1 test, 0 failures
+
+Regardless of how to start the mix project, it ensures that the 'ebin'
+folder (where the '.beam' files are placed) is in the load path so the VM
+can find your modules.
 "
 |> IO.puts()
