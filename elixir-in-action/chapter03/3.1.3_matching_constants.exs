@@ -20,5 +20,19 @@ Here is an example of a failure:
 
 This example is only used to illustrate that you can place constants to the
 left of '=', proving that '=' is NOT an assignment operator.
+
+Constants are much more useful in compound matches. For example, it is common
+to use tuples to group various fields of a record. The following snippet
+creates a tuple that holds a person's name and age:
+
+  iex(1)> person = {:person, \"Bob\", 25}
+  {:person, \"Bob\", 25}
+
+The first element is a constant atom, ':person', which you use to denote
+that this tuple represents a person. You can then rely on this to retrieve
+individual attributes of the person:
+
+  iex(2)> {:person, name, age} = person
+  {:person, \"Bob\", 25}
 "
 |> IO.puts()
