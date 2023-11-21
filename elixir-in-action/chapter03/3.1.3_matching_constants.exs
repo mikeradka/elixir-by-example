@@ -56,5 +56,19 @@ file contents with the help of the 'File.read/1' function.
    {:ok, \"This is just a test config file to illustrate File.read/1.\"}
   iex(3)> contents
    \"This is just a test config file to illustrate File.read/1.\"
-"
+
+Three disting things happen here:
+ 1. An attempt to open and read the file my_app.config.
+ 2. If the read attempt succeeds, the file contents are extracted into
+    the variable 'contents'.
+ 3. If the attempt fails, an error is raised. This happens because if it
+    fails, the result would be {:error, reason} instead of {:ok, contents},
+    so there would be no match:
+
+     iex(6)> {:ok, contents} = File.read(\"nonexistant_file\")
+      ** (MatchError) no match of right hand side value: {:error, :enoent}
+
+By using constants in patterns, you tighten the match. This makes sure that
+some part of the right side has a specific value.
+      "
 |> IO.puts()
