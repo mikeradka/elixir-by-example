@@ -4,6 +4,10 @@ STARTING THE RUNTIME
 There are multiple ways to start BEAM. IEX (interactive Elixir) is one of
 them, but there are others.
 
+  1. iex
+  2. 'elixir <script.ex/exs>
+  3. The Mix Tool
+
 INTERACTIVE SHELL
 
 When you start the iex shell, the BEAM instance is started underneath, and
@@ -64,5 +68,11 @@ concurrent tasks that perform all the work. In this situation, your main call
 finishes as soon as the concurrent tasks are started, and BEAM is immediately
 terminated, and no work is done. Providing the '--no-halt' option keeps the
 entire system alive and running.
+
+THE MIX TOOL
+
+The mix tool is used to manage projects that are made up of multiple source
+files. Mix is your best option when you need to build a production-ready
+system.
 "
 |> IO.puts()
