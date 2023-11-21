@@ -50,5 +50,15 @@ variables:
   7
   iex(11)> second
   44
+
+If the right side does not correspond to the pattern, the match will fail
+and an error is raised:
+
+  iex(1)> {name, age} = \"can't match\"
+  ** (MatchError) no match of right hand side value: \"can't match\"
+
+Matching is not confined to destructuring tuple elements to individual
+variables. Even constants are allowed on the left side of the match
+expression.
 "
 |> IO.puts()
