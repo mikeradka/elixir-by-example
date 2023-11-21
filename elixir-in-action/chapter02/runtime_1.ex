@@ -96,5 +96,20 @@ Compiling the source file that contains such a definition will generate
 The important thing to remember is that at runtime, module names are atoms.
 And somewhere on the disk is an 'xyz.beam' file, where 'xyz' is the expanded
 form of an alias, such as 'Elixir.MyModule when the modules is named MyModule.
+
+DYNAMICALLY CALLING FUNCTIONS
+
+There is the ability to dynamically call functions at runtime, using the
+'Kernel.apply/3' function:
+
+  iex(1)> apply(IO, :puts, [\"Dynamic function call.\"])
+  Dynamic function call.
+
+'Kernel.apply/3' received three arguments: the module atom, the function
+atom, and th list of arguments passed to the function. Together, these three
+arguments, often called MFA (for Module, Function, Arguments), contain all
+the information needed to call an exported (public) function. 'Kernel.apply/3'
+can be useful when you need to make a runtime decision about which function
+to call.
 "
 |>IO.puts()
