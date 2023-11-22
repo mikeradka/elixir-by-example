@@ -50,5 +50,43 @@ Matching bitstrings and binaries is very useful when you're trying to parse
 packed binary content that comes from a file, an external device, or a
 network. In such situations, you can use binary matching to extract separate
 bits and bytes elegantly.
+
+MATCHING BINARY STRINGS
+
+In Elixir, strings are binaries, so you can use binary matches to extract
+individual bits and bytes from a string:
+
+  iex(1)> <<b1, b2, b3>> = \"ABC\"
+  \"ABC\"
+  iex(2)> b1
+  65
+  iex(3)> b2
+  66
+  iex(4)> b3
+  67
+
+The variables 'b1', 'b2', and 'b3' hold corresponding bytes from the string
+you matched on (ABC). This is not very useful, especially if you are dealing
+with Unicode strings. Extracting individual characters is better done using
+functions from the 'String' module.
+
+A more useful pattern is to match the beginning of the string:
+
+iex(1)> command = \"ping www.example.com\"
+\"ping www.example.com\"
+iex(2)> \"ping \" <> url = command    # Matching the string
+\"ping www.example.com\"
+iex(3)> url
+\"www.example.com\"
+
+In the above example, you construct a string that holds a 'ping' command.
+When you write '\"ping \" <> url = command', you state the expectation that
+a command variable is a binary string starting with 'ping'. If it matches,
+the rest of the string is bound to the variable 'url'.
+
+If it does not match, you receive an error:
+
+  iex(4)> \"sping \" <> url = command
+  ** (MatchError) no match of right hand side value: \"ping www.example.com\"
 "
 |> IO.puts()
